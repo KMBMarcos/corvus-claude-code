@@ -322,7 +322,7 @@ COMMANDER selects units according to the mission, not according to a fixed pipel
 * Select exactly one primary executor: FORGE for focused changes or VANGUARD for broad campaigns.
 * Deploy SENTINEL afterward for independent verification.
 
-Every unit reports its findings or blockers to COMMANDER. COMMANDER decides the next deployment.
+Every unit reports its findings or blowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwckers to COMMANDER. COMMANDER decides the next deployment.
 
 # 🎯 Mission Lifecycle
 
