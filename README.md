@@ -311,9 +311,7 @@ SENTINEL should be particularly valuable at the end of missions involving signif
 
 > *Nothing leaves the battlefield unverified.*
 
----
-
-# ⚔️ Unit Selection
+### ⚔️ Unit Selection
 
 COMMANDER selects units according to the mission, not according to a fixed pipeline:
 
