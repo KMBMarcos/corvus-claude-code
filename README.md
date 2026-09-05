@@ -25,45 +25,26 @@ CORVUS treats these activities as separate operational responsibilities.
 A central command agent receives the mission and determines which specialized units should be deployed.
 
 ```text
-                         ┌───────────────┐
-                         │   COMMANDER   │
-                         │  HIGH COMMAND │
-                         └───────┬───────┘
-                                 │
-        ┌────────────────────────┼────────────────────────┐
-        │                        │                        │
-        ▼                        ▼                        ▼
-   ┌──────────┐             ┌──────────┐             ┌──────────┐
-   │  RAVEN   │             │  ORACLE  │             │ SPECTER  │
-   │  RECON   │             │  INTEL   │             │  COVERT  │
-   └────┬─────┘             └────┬─────┘             └──────────┘
-        │                        │
-        │                 ┌──────┴──────┐
-        │                 ▼             ▼
-        │            ┌─────────┐  ┌─────────┐
-        │            │ SIGNAL  │  │  AEGIS  │
-        │            │  DOCS   │  │   UX    │
-        │            └─────────┘  └─────────┘
-        │                        │
-        └──────────────┬─────────┘
-                       ▼
-              ┌──────────────────┐
-              │ SELECT EXECUTOR  │
-              └────────┬─────────┘
-                       │
-              ┌────────┴────────┐
-              ▼                 ▼
-        ┌──────────┐      ┌─────────┐
-        │ VANGUARD │      │  FORGE  │
-        │  ASSAULT │      │ENGINEER │
-        └────┬─────┘      └────┬────┘
-             └────────┬────────┘
-                      ▼
-                ┌──────────┐
-                │ SENTINEL │
-                │  VERIFY  │
-                └──────────┘
+                         COMMANDER
+                    /       |       \
+                   /        |        \
+              RAVEN      ORACLE     SIGNAL
+                   \        |        /
+                    \       |       /
+                         COMMANDER
+                             |
+                   +---------+---------+
+                   |                   |
+                FORGE              VANGUARD
+              EXECUTOR             EXECUTOR
+                   |                   |
+                   +---------+---------+
+                             |
+                          SENTINEL
+                           VERIFY
 ```
+
+SPECTER and AEGIS are optional units deployed directly by COMMANDER when the mission requires deep debugging or user-facing design. Every unit reports back to COMMANDER; no unit deploys or coordinates with another unit directly.
 
 CORVUS does not attempt to make every agent capable of everything.
 
@@ -258,7 +239,7 @@ SIGNAL is CORVUS's documentation and external research unit.
 
 It is deployed when a mission requires official documentation, API references, changelogs, library comparisons, or verified information beyond the codebase.
 
-When COMMANDER requires an implementation plan that depends on external documentation or research, SIGNAL operates alongside ORACLE: SIGNAL gathers and verifies the external intelligence, while ORACLE turns it into strategic analysis and a concrete plan.
+When COMMANDER requires an implementation plan that depends on external documentation or research, COMMANDER may deploy SIGNAL and later deploy ORACLE based on SIGNAL's report. SIGNAL gathers and verifies the external intelligence; ORACLE turns it into strategic analysis only when COMMANDER decides that analysis is needed.
 
 **Primary duties:**
 
@@ -332,342 +313,43 @@ SENTINEL should be particularly valuable at the end of missions involving signif
 
 ---
 
-## ⚔️ Unit Selection
+# ⚔️ Unit Selection
 
-COMMANDER determines deployment based on mission requirements.
+COMMANDER selects units according to the mission, not according to a fixed pipeline:
 
-A mission may require a single unit or several units working in sequence or parallel.
+* Deploy RAVEN for repository reconnaissance.
+* Deploy ORACLE for architecture, planning, or strategic analysis.
+* Deploy SIGNAL only when external documentation or research is needed.
+* Deploy AEGIS only when the mission affects user-facing interfaces or workflows.
+* Select exactly one primary executor: FORGE for focused changes or VANGUARD for broad campaigns.
+* Deploy SENTINEL afterward for independent verification.
 
-Typical deployments may look like:
-
-```text
-RECONNAISSANCE
-    RAVEN
-       ↓
-STRATEGIC ANALYSIS
-    ORACLE
-       ↓
-ENGINEERING
-    FORGE
-       ↓
-VERIFICATION
-     SENTINEL
-```
-
-A larger operation may require:
-
-```text
-                                            COMMANDER
-                                                │
-                               ┌────────────────┼────────────────┐
-                               ▼                ▼                ▼
-                             RAVEN            ORACLE           SPECTER
-                               │                │                │
-                               │         ┌──────┴──────┐         │
-                               │         ▼             ▼         │
-                               │       SIGNAL        AEGIS       │
-                               └──────────────┬──────────────────┘
-                                              ▼
-                                      ┌────────────────┐
-                                      │ SELECT EXECUTOR│
-                                      └───────┬────────┘
-                                         ┌────┴────┐
-                                         ▼         ▼
-                                     VANGUARD    FORGE
-                                         │         │
-                                         └────┬────┘
-                                              ▼
-                                           SENTINEL
-```
-
-The executor is selected by scope. A focused bug fix may follow:
-
-```text
-COMMANDER → RAVEN → SPECTER → FORGE → SENTINEL
-```
-
-A system-wide migration may follow:
-
-```text
-COMMANDER → RAVEN → ORACLE → VANGUARD → SENTINEL
-```
-
-The roster is not a fixed pipeline.
-
-**COMMANDER determines the deployment strategy based on the mission.**
-
-# 🛰️ Units
-
-## COMMANDER
-
-**High Command / Mission Control**
-
-COMMANDER is the strategic authority of CORVUS.
-
-It receives the user's objective, evaluates the mission, determines the required capabilities, and coordinates the deployment of specialized units.
-
-### Responsibilities
-
-* Mission analysis
-* Task decomposition
-* Agent selection
-* Operational coordination
-* Result aggregation
-* Mission status
-* Final verification
-
-COMMANDER should delegate whenever specialization provides a better solution than direct execution.
-
----
-
-## 🦅 RAVEN
-
-**Reconnaissance & Repository Intelligence**
-
-RAVEN is the reconnaissance unit.
-
-Its primary objective is to understand the battlefield before anyone starts changing it.
-
-### Responsibilities
-
-* Repository exploration
-* Architecture discovery
-* Dependency analysis
-* Codebase mapping
-* Relevant file identification
-* Existing implementation analysis
-* Reconnaissance reports
-
-RAVEN favors **observation over intervention**.
-
-> Understand the terrain before deploying the troops.
-
----
-
-## 👻 SPECTER
-
-**Covert Operations & Deep Investigation**
-
-SPECTER specializes in problems that require careful investigation rather than immediate implementation.
-
-### Responsibilities
-
-* Complex debugging
-* Legacy code investigation
-* Behavioral tracing
-* Root-cause analysis
-* Cross-component investigation
-* Hidden dependency discovery
-* Difficult technical problems
-
-SPECTER operates where the problem is not immediately visible.
-
-> Observe. Infiltrate. Understand. Extract.
-
----
-
-## 🔨 FORGE
-
-**Engineering & Fabrication**
-
-FORGE is the primary engineering unit.
-
-When the objective has been understood and a solution has been determined, FORGE builds it.
-
-### Responsibilities
-
-* Feature implementation
-* Code modification
-* Refactoring
-* Test creation
-* Bug fixes
-* API implementation
-* Component development
-
-FORGE transforms operational plans into working software.
-
-> Design becomes code.
-
----
-
-## ⚔️ VANGUARD
-
-**Primary Assault & Large-Scale Execution**
-
-VANGUARD handles larger engineering operations.
-
-Where FORGE may perform a surgical implementation, VANGUARD is designed for broader campaigns involving multiple components or significant changes to the system.
-
-### Responsibilities
-
-* Large-scale implementation
-* System migrations
-* Multi-component changes
-* Major refactors
-* Complex feature campaigns
-* Coordinated execution
-
-> When the objective requires force, deploy the VANGUARD.
-
----
-
-## 🔮 ORACLE
-
-**Strategic Intelligence & Analysis**
-
-ORACLE is the analytical unit.
-
-It focuses on understanding difficult technical decisions before implementation begins.
-
-### Responsibilities
-
-* Architecture analysis
-* Technical research
-* Solution design
-* Trade-off analysis
-* Risk assessment
-* Implementation planning
-* Strategic recommendations
-
-ORACLE provides intelligence.
-
-COMMANDER decides how that intelligence is used.
-
-> Knowledge precedes action.
-
----
-
-## 📡 SIGNAL
-
-**Documentation & External Intelligence**
-
-SIGNAL handles documentation work and research outside the repository.
-
-### Responsibilities
-
-* Official documentation lookup
-* API and library reference verification
-* Changelog and release-note research
-* Framework and library comparisons
-* Technical documentation creation and improvement
-* Source and confidence reporting
-
-When COMMANDER requires a plan that depends on external information, SIGNAL works alongside ORACLE. SIGNAL verifies the sources and technical facts; ORACLE evaluates the trade-offs and produces the implementation plan.
-
-> Verified knowledge travels farther.
-
----
-
-## 🛡️ AEGIS
-
-**Interface & User Experience**
-
-AEGIS owns user-facing design and implementation.
-
-### Responsibilities
-
-* Interface and interaction design
-* Usability and accessibility review
-* Design-system and UI-pattern discovery
-* Layout and interaction proposals
-* Frontend implementation when authorized
-* Rationale for interface decisions
-
-AEGIS is deployed for screens, forms, dashboards, components, and any workflow that users see or touch. It should preserve established project conventions and surface interface decisions before building.
-
-> A system is only complete when it can be used.
-
----
-
-## 🛡️ SENTINEL
-
-**Defense, Verification & Quality Assurance**
-
-SENTINEL exists to ensure that a completed operation is actually complete.
-
-It challenges implementations rather than assuming they are correct.
-
-### Responsibilities
-
-* Test verification
-* Regression detection
-* Security review
-* Requirement verification
-* Code quality analysis
-* Implementation review
-* Final validation
-
-If SENTINEL detects a problem, the mission is not complete.
-
-> Nothing leaves the battlefield unverified.
-
----
+Every unit reports its findings or blockers to COMMANDER. COMMANDER decides the next deployment.
 
 # 🎯 Mission Lifecycle
 
 A typical CORVUS operation follows a tactical lifecycle:
 
 ```text
-        ┌──────────┐
-        │  MISSION │
-        └────┬─────┘
-             │
-             ▼
-       ┌───────────┐
-       │ COMMANDER │
-       └─────┬─────┘
-             │
-             ▼
-        ┌─────────┐
-        │  RECON  │
-        │  RAVEN  │
-        └────┬────┘
-             │
-             ▼
-        ┌─────────┐
-        │ ANALYZE │
-        │  ORACLE │
-        └────┬────┘
-             │
-             ▼
-     ┌───────────────┐
-     │ OPTIONAL UNITS│
-     │ SIGNAL / AEGIS│
-     └───────┬───────┘
-             │
-             ▼
-        ┌──────────┐
-        │ DEPLOY   │
-        │SPECIALIST│
-        └────┬─────┘
-             │
-             ▼
-        ┌────────────────┐
-        │ SELECT EXECUTOR│
-        └───────┬────────┘
-                │
-           ┌────┴────┐
-           ▼         ▼
-      ┌─────────┐ ┌──────────┐
-      │  FORGE  │ │ VANGUARD │
-      │ FOCUSED │ │  LARGE   │
-      └────┬────┘ └────┬─────┘
-           └─────┬─────┘
-                 ▼
-        ┌──────────┐
-        │ VERIFY   │
-        │ SENTINEL │
-        └────┬─────┘
-             │
-         ┌───┴───┐
-         │       │
-        FAIL   PASS
-         │       │
-         ▼       ▼
-      REDEPLOY REPORT
-                 │
-                 ▼
-              COMPLETE
+        MISSION
+           |
+           v
+       COMMANDER
+        /  |  \
+       /   |   \
+    UNIT  UNIT  UNIT
+       \   |   /
+        \  |  /
+       REPORT TO COMMANDER
+           |
+       DECISION / DEPLOYMENT
+           |
+     FORGE or VANGUARD
+           |
+       SENTINEL VERIFY
+           |
+      PASS -> COMPLETE
+      FAIL -> COMMANDER REDEPLOYS
 ```
 
 Not every mission requires every unit.
