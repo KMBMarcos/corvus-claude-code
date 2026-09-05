@@ -25,32 +25,44 @@ CORVUS treats these activities as separate operational responsibilities.
 A central command agent receives the mission and determines which specialized units should be deployed.
 
 ```text
-                             ┌───────────────┐
-                             │   COMMANDER   │
-                             │  HIGH COMMAND │
-                             └───────┬───────┘
-                                     │
-            ┌────────────────────────┼────────────────────────┐
-            │                        │                        │
-            ▼                        ▼                        ▼
-       ┌──────────┐             ┌──────────┐             ┌──────────┐
-       │  RAVEN   │             │  ORACLE  │             │ VANGUARD │
-       │  RECON   │             │  INTEL   │             │  DEFENSE │
-       └────┬─────┘             └────┬─────┘             └──────────┘
-            │                        │
-            ▼                 ┌──────┴──────┐
-       ┌──────────┐           ▼             ▼
-       │ SPECTER  │      ┌─────────┐  ┌─────────┐
-       │  COVERT  │      │ SIGNAL  │  │  AEGIS  │
-       └──────────┘      │  DOCS   │  │   UX    │
-                         └─────────┘  └─────────┘
-                              │
-                      ┌───────┴───────┐
-                      ▼               ▼
-                ┌──────────┐   ┌─────────┐
-                │ SENTINEL │   │  FORGE  │
-                │  ASSAULT │   │ENGINEER │
-                └──────────┘   └─────────┘
+                         ┌───────────────┐
+                         │   COMMANDER   │
+                         │  HIGH COMMAND │
+                         └───────┬───────┘
+                                 │
+        ┌────────────────────────┼────────────────────────┐
+        │                        │                        │
+        ▼                        ▼                        ▼
+   ┌──────────┐             ┌──────────┐             ┌──────────┐
+   │  RAVEN   │             │  ORACLE  │             │ SPECTER  │
+   │  RECON   │             │  INTEL   │             │  COVERT  │
+   └────┬─────┘             └────┬─────┘             └──────────┘
+        │                        │
+        │                 ┌──────┴──────┐
+        │                 ▼             ▼
+        │            ┌─────────┐  ┌─────────┐
+        │            │ SIGNAL  │  │  AEGIS  │
+        │            │  DOCS   │  │   UX    │
+        │            └─────────┘  └─────────┘
+        │                        │
+        └──────────────┬─────────┘
+                       ▼
+              ┌──────────────────┐
+              │ SELECT EXECUTOR  │
+              └────────┬─────────┘
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+        ┌──────────┐      ┌─────────┐
+        │ VANGUARD │      │  FORGE  │
+        │  ASSAULT │      │ENGINEER │
+        └────┬─────┘      └────┬────┘
+             └────────┬────────┘
+                      ▼
+                ┌──────────┐
+                │ SENTINEL │
+                │  VERIFY  │
+                └──────────┘
 ```
 
 CORVUS does not attempt to make every agent capable of everything.
@@ -182,13 +194,13 @@ FORGE is optimized for **focused, well-defined engineering objectives**.
 
 ---
 
-### ⚔️ SENTINEL
+### ⚔️ VANGUARD
 
 **Assault · Large-Scale Execution**
 
-SENTINEL is deployed when the mission exceeds the scope of a focused engineering operation.
+VANGUARD is deployed when the mission exceeds the scope of a focused engineering operation.
 
-Where FORGE performs precise engineering, SENTINEL handles broader campaigns involving multiple systems, substantial migrations, or large-scale transformations.
+Where FORGE performs precise engineering, VANGUARD handles broader campaigns involving multiple systems, substantial migrations, or large-scale transformations.
 
 **Primary duties:**
 
@@ -200,11 +212,11 @@ Where FORGE performs precise engineering, SENTINEL handles broader campaigns inv
 * Manage complex implementation sequences.
 * Maintain operational momentum across multiple objectives.
 
-SENTINEL should be deployed when the mission requires **breadth, persistence, and coordinated execution**.
+VANGUARD should be deployed when the mission requires **breadth, persistence, and coordinated execution**.
 
 **Doctrine:**
 
-> *When the objective requires force, deploy the SENTINEL.*
+> *When the objective requires force, deploy the VANGUARD.*
 
 ---
 
@@ -290,15 +302,15 @@ AEGIS should preserve established project patterns and surface unresolved interf
 
 ---
 
-### 🛡️ VANGUARD
+### 🛡️ SENTINEL
 
 **Defense · Verification & Quality Assurance**
 
-VANGUARD is CORVUS's defensive and verification unit.
+SENTINEL is CORVUS's defensive and verification unit.
 
 Its purpose is to challenge completed work rather than assume that completed work is correct.
 
-VANGUARD provides an independent assessment of whether the mission objective has actually been achieved.
+SENTINEL provides an independent assessment of whether the mission objective has actually been achieved.
 
 **Primary duties:**
 
@@ -312,7 +324,7 @@ VANGUARD provides an independent assessment of whether the mission objective has
 * Identify incomplete or unintended changes.
 * Report failures back to COMMANDER.
 
-VANGUARD should be particularly valuable at the end of missions involving significant code changes.
+SENTINEL should be particularly valuable at the end of missions involving significant code changes.
 
 **Doctrine:**
 
@@ -339,13 +351,13 @@ ENGINEERING
     FORGE
        ↓
 VERIFICATION
-     VANGUARD
+     SENTINEL
 ```
 
 A larger operation may require:
 
 ```text
-                                             COMMANDER
+                                            COMMANDER
                                                 │
                                ┌────────────────┼────────────────┐
                                ▼                ▼                ▼
@@ -354,13 +366,30 @@ A larger operation may require:
                                │         ┌──────┴──────┐         │
                                │         ▼             ▼         │
                                │       SIGNAL        AEGIS       │
-                               └───────────────┬─────────────────┘
-                                               ▼
-                                            SENTINEL
-                                               │
-                                             FORGE
-                                               │
-                                           VANGUARD
+                               └──────────────┬──────────────────┘
+                                              ▼
+                                      ┌────────────────┐
+                                      │ SELECT EXECUTOR│
+                                      └───────┬────────┘
+                                         ┌────┴────┐
+                                         ▼         ▼
+                                     VANGUARD    FORGE
+                                         │         │
+                                         └────┬────┘
+                                              ▼
+                                           SENTINEL
+```
+
+The executor is selected by scope. A focused bug fix may follow:
+
+```text
+COMMANDER → RAVEN → SPECTER → FORGE → SENTINEL
+```
+
+A system-wide migration may follow:
+
+```text
+COMMANDER → RAVEN → ORACLE → VANGUARD → SENTINEL
 ```
 
 The roster is not a fixed pipeline.
@@ -461,13 +490,13 @@ FORGE transforms operational plans into working software.
 
 ---
 
-## ⚔️ SENTINEL
+## ⚔️ VANGUARD
 
 **Primary Assault & Large-Scale Execution**
 
-SENTINEL handles larger engineering operations.
+VANGUARD handles larger engineering operations.
 
-Where FORGE may perform a surgical implementation, SENTINEL is designed for broader campaigns involving multiple components or significant changes to the system.
+Where FORGE may perform a surgical implementation, VANGUARD is designed for broader campaigns involving multiple components or significant changes to the system.
 
 ### Responsibilities
 
@@ -478,7 +507,7 @@ Where FORGE may perform a surgical implementation, SENTINEL is designed for broa
 * Complex feature campaigns
 * Coordinated execution
 
-> When the objective requires force, deploy the SENTINEL.
+> When the objective requires force, deploy the VANGUARD.
 
 ---
 
@@ -550,11 +579,11 @@ AEGIS is deployed for screens, forms, dashboards, components, and any workflow t
 
 ---
 
-## 🛡️ VANGUARD
+## 🛡️ SENTINEL
 
 **Defense, Verification & Quality Assurance**
 
-VANGUARD exists to ensure that a completed operation is actually complete.
+SENTINEL exists to ensure that a completed operation is actually complete.
 
 It challenges implementations rather than assuming they are correct.
 
@@ -568,7 +597,7 @@ It challenges implementations rather than assuming they are correct.
 * Implementation review
 * Final validation
 
-If VANGUARD detects a problem, the mission is not complete.
+If SENTINEL detects a problem, the mission is not complete.
 
 > Nothing leaves the battlefield unverified.
 
@@ -613,16 +642,21 @@ A typical CORVUS operation follows a tactical lifecycle:
         └────┬─────┘
              │
              ▼
-       ┌────────────┐
-       │  EXECUTE   │
-       │ FORGE /    │
-       │ SENTINEL   │
-       └─────┬──────┘
-             │
-             ▼
+        ┌────────────────┐
+        │ SELECT EXECUTOR│
+        └───────┬────────┘
+                │
+           ┌────┴────┐
+           ▼         ▼
+      ┌─────────┐ ┌──────────┐
+      │  FORGE  │ │ VANGUARD │
+      │ FOCUSED │ │  LARGE   │
+      └────┬────┘ └────┬─────┘
+           └─────┬─────┘
+                 ▼
         ┌──────────┐
         │ VERIFY   │
-        │ VANGUARD │
+        │ SENTINEL │
         └────┬─────┘
              │
          ┌───┴───┐
@@ -747,13 +781,13 @@ CORVUS works best when its agents can access specialized tools for interface val
 
 | Tool | Recommended units | Mission support |
 | ---- | ----------------- | --------------- |
-| **Playwright CLI** | AEGIS, VANGUARD | Browser automation, UI interaction checks, visual validation, and end-to-end testing. AEGIS uses it to validate user flows; VANGUARD uses it to independently verify that the interface works as required. |
-| **Strix** | VANGUARD, COMMANDER | Authorized application penetration testing, security assessment, and actionable findings for web application attack surfaces. VANGUARD evaluates the results and COMMANDER coordinates remediation when risks are found. |
+| **Playwright CLI** | AEGIS, SENTINEL | Browser automation, UI interaction checks, visual validation, and end-to-end testing. AEGIS uses it to validate user flows; SENTINEL uses it to independently verify that the interface works as required. |
+| **Strix** | SENTINEL, COMMANDER | Authorized application penetration testing, security assessment, and actionable findings for web application attack surfaces. SENTINEL evaluates the results and COMMANDER coordinates remediation when risks are found. |
 
 ## Plugin Deployment Guidance
 
 * Deploy **Playwright CLI** whenever a mission changes screens, forms, dashboards, components, or user-facing workflows.
-* Run Playwright checks during AEGIS implementation and again during VANGUARD's independent verification phase.
+* Run Playwright checks during AEGIS implementation and again during SENTINEL's independent verification phase.
 * Deploy **Strix** for authorized pentesting of the application, especially before a release or after changes to authentication, authorization, APIs, data handling, or other security-sensitive surfaces.
 * Record tool versions, test scope, environment, and unresolved findings in the mission report.
 * Use these tools only against applications and environments for which the team has explicit authorization.
