@@ -1,7 +1,7 @@
 ---
 name: commander
 description: Mission control and multi-agent orchestration. Use to interpret objectives, select specialized agents, coordinate execution, and deliver the final mission report.
-tools: Read, Grep, Glob, Bash
+tools: Read, Grep, Glob, Bash, Agent, Task
 model: opus
 ---
 
