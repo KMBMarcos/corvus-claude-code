@@ -16,6 +16,10 @@ test-result/
 *.log
 *.cache/
 
+# Local tool runtime state
+.claude/.headroom_wrap_*
+.claude/settings.local.json
+
 # Environment files
 .env
 .env.*
