@@ -12,8 +12,45 @@ The objective is simple:
 
 **Recon. Analyze. Deploy. Execute. Verify.**
 
+## Table of Contents
+
+- [The Doctrine](#the-doctrine)
+- [Roster](#roster)
+  - [COMMANDER](#commander)
+  - [RAVEN](#raven)
+  - [SPECTER](#specter)
+  - [FORGE](#forge)
+  - [VANGUARD](#vanguard)
+  - [ORACLE](#oracle)
+  - [SIGNAL](#signal)
+  - [AEGIS](#aegis)
+  - [SENTINEL](#sentinel)
+  - [Unit Selection](#unit-selection)
+- [Mission Lifecycle](#mission-lifecycle)
+- [Multi-Agent Philosophy](#multi-agent-philosophy)
+  - [Specialization](#specialization)
+  - [Delegation](#delegation)
+  - [Reconnaissance First](#reconnaissance-first)
+  - [Separation of Analysis and Execution](#separation-of-analysis-and-execution)
+  - [Independent Verification](#independent-verification)
+  - [Mission-Oriented Execution](#mission-oriented-execution)
+- [Project Status](#project-status)
+- [Roadmap](#roadmap)
+  - [Phase I — Command Structure](#phase-i--command-structure)
+  - [Phase II — Deployment](#phase-ii--deployment)
+  - [Phase III — Intelligence](#phase-iii--intelligence)
+  - [Phase IV — Defensive Operations](#phase-iv--defensive-operations)
+  - [Phase V — Command Infrastructure](#phase-v--command-infrastructure)
+- [Designed For](#designed-for)
+- [Recommended Plugins & Tools](#recommended-plugins--tools)
+- [Operational Terminology](#operational-terminology)
+- [Why CORVUS?](#why-corvus)
+- [Disclaimer](#disclaimer)
+- [License](#license)
+
 ---
 
+<a id="the-doctrine"></a>
 ## ⚔️ The Doctrine
 
 Software engineering is rarely a single operation.
@@ -52,6 +89,7 @@ CORVUS does not attempt to make every agent capable of everything.
 
 ---
 
+<a id="roster"></a>
 ## 🦅 Roster
 
 CORVUS operates through a specialized roster of autonomous units.
@@ -62,7 +100,8 @@ Each unit has a defined operational role. Units are not interchangeable: they ar
 
 ---
 
-### 🜲 COMMANDER
+<a id="commander"></a>
+### ☩ COMMANDER
 
 **High Command · Mission Control**
 
@@ -89,6 +128,7 @@ It does not exist to perform every task. Its purpose is to understand the missio
 
 ---
 
+<a id="raven"></a>
 ### 🦅 RAVEN
 
 **Reconnaissance · Repository Intelligence**
@@ -121,7 +161,8 @@ RAVEN should prioritize **observation over intervention**.
 
 ---
 
-### 👻 SPECTER
+<a id="specter"></a>
+### 🌑 SPECTER
 
 **Covert Operations · Deep Investigation**
 
@@ -148,6 +189,7 @@ SPECTER is an investigative unit, not a general-purpose implementation agent.
 
 ---
 
+<a id="forge"></a>
 ### 🔨 FORGE
 
 **Engineering · Fabrication**
@@ -175,6 +217,7 @@ FORGE is optimized for **focused, well-defined engineering objectives**.
 
 ---
 
+<a id="vanguard"></a>
 ### ⚔️ VANGUARD
 
 **Assault · Large-Scale Execution**
@@ -201,6 +244,7 @@ VANGUARD should be deployed when the mission requires **breadth, persistence, an
 
 ---
 
+<a id="oracle"></a>
 ### 🔮 ORACLE
 
 **Strategic Intelligence · Analysis**
@@ -231,6 +275,7 @@ ORACLE should favor **analysis and planning over direct implementation**.
 
 ---
 
+<a id="signal"></a>
 ### 📡 SIGNAL
 
 **Documentation · External Intelligence**
@@ -258,6 +303,7 @@ SIGNAL provides verified information. **ORACLE converts that information into st
 
 ---
 
+<a id="aegis"></a>
 ### 🛡️ AEGIS
 
 **Interface · User Experience**
@@ -279,11 +325,12 @@ AEGIS should preserve established project patterns and surface unresolved interf
 
 **Doctrine:**
 
-> *A system is only complete when it can be used.*
+> *The interface is part of the mission.*
 
 ---
 
-### 🛡️ SENTINEL
+<a id="sentinel"></a>
+### 💀 SENTINEL
 
 **Defense · Verification & Quality Assurance**
 
@@ -324,6 +371,10 @@ COMMANDER selects units according to the mission, not according to a fixed pipel
 
 Every unit reports its findings or blockers to COMMANDER. COMMANDER decides the next deployment.
 
+<a id="mission-lifecycle"></a>
+<a id="unit-selection"></a>
+### ⚔️ Unit Selection
+
 # 🎯 Mission Lifecycle
 
 A typical CORVUS operation follows a tactical lifecycle:
@@ -356,38 +407,46 @@ COMMANDER determines the appropriate deployment based on the objective.
 
 ---
 
+<a id="multi-agent-philosophy"></a>
 # 🧠 Multi-Agent Philosophy
 
 CORVUS is built around several principles.
 
+<a id="specialization"></a>
 ### 1. Specialization
 
 Agents should have clear responsibilities instead of attempting to solve every problem.
 
+<a id="delegation"></a>
 ### 2. Delegation
 
 The command layer should focus on deciding **who should perform the work**, not necessarily performing all of it itself.
 
+<a id="reconnaissance-first"></a>
 ### 3. Reconnaissance First
 
 Agents should understand an unfamiliar codebase before modifying it.
 
+<a id="separation-of-analysis-and-execution"></a>
 ### 4. Separation of Analysis and Execution
 
 Planning and implementation are different activities.
 
 CORVUS treats them accordingly.
 
+<a id="independent-verification"></a>
 ### 5. Independent Verification
 
 An agent that writes the solution should not automatically be considered the final authority on whether the solution is correct.
 
+<a id="mission-oriented-execution"></a>
 ### 6. Mission-Oriented Execution
 
 Every operation should have a clear objective, operational state, and completion condition.
 
 ---
 
+<a id="project-status"></a>
 # 🚧 Project Status
 
 **Status: Experimental / Early Development**
@@ -400,24 +459,28 @@ The architecture is expected to evolve significantly as the project develops.
 
 ---
 
+<a id="roadmap"></a>
 # 🗺️ Roadmap
 
+<a id="phase-i--command-structure"></a>
 ### Phase I — Command Structure
 
-* [ ] Define CORVUS architecture
-* [ ] Implement COMMANDER
-* [ ] Implement specialized units
-* [ ] Establish agent communication
-* [ ] Define mission lifecycle
+* [x] Define CORVUS architecture
+* [x] Implement COMMANDER
+* [x] Implement specialized units
+* [x] Establish agent communication
+* [x] Define mission lifecycle
 
+<a id="phase-ii--deployment"></a>
 ### Phase II — Deployment
 
-* [ ] Dynamic agent delegation
-* [ ] Parallel agent execution
-* [ ] Mission state tracking
-* [ ] Agent result aggregation
-* [ ] Failure recovery
+* [x] Dynamic agent delegation
+* [x] Parallel agent execution
+* [x] Mission state tracking
+* [x] Agent result aggregation
+* [x] Failure recovery
 
+<a id="phase-iii--intelligence"></a>
 ### Phase III — Intelligence
 
 * [ ] Repository reconnaissance
@@ -426,6 +489,7 @@ The architecture is expected to evolve significantly as the project develops.
 * [ ] Persistent mission reports
 * [ ] Improved task routing
 
+<a id="phase-iv--defensive-operations"></a>
 ### Phase IV — Defensive Operations
 
 * [ ] Automated verification
@@ -433,6 +497,7 @@ The architecture is expected to evolve significantly as the project develops.
 * [ ] Security review
 * [ ] Independent implementation auditing
 
+<a id="phase-v--command-infrastructure"></a>
 ### Phase V — Command Infrastructure
 
 * [ ] Mission dashboard
@@ -443,6 +508,7 @@ The architecture is expected to evolve significantly as the project develops.
 
 ---
 
+<a id="designed-for"></a>
 # 🛠️ Designed For
 
 CORVUS is designed specifically around **Claude Code** and its agentic development workflow.
@@ -455,6 +521,7 @@ Claude remains the underlying intelligence.
 
 ---
 
+<a id="recommended-plugins--tools"></a>
 # 🔌 Recommended Plugins & Tools
 
 CORVUS works best when its agents can access specialized tools for interface validation and application security. Install and configure these tools according to the target project's stack and permissions.
@@ -462,18 +529,21 @@ CORVUS works best when its agents can access specialized tools for interface val
 | Tool | Recommended units | Mission support |
 | ---- | ----------------- | --------------- |
 | **Playwright CLI** | AEGIS, SENTINEL | Browser automation, UI interaction checks, visual validation, and end-to-end testing. AEGIS uses it to validate user flows; SENTINEL uses it to independently verify that the interface works as required. |
+| **Find Skills** | COMMANDER, RAVEN, ORACLE, SIGNAL | Discover reusable skills and established workflows for the mission. It helps locate specialized capabilities, reusable patterns, and documented procedures without reinventing a task from scratch. |
 | **Strix** | SENTINEL, COMMANDER | Authorized application penetration testing, security assessment, and actionable findings for web application attack surfaces. SENTINEL evaluates the results and COMMANDER coordinates remediation when risks are found. |
 
 ## Plugin Deployment Guidance
 
 * Deploy **Playwright CLI** whenever a mission changes screens, forms, dashboards, components, or user-facing workflows.
 * Run Playwright checks during AEGIS implementation and again during SENTINEL's independent verification phase.
+* Use **Find Skills** when the team needs a known reusable capability, a proven workflow, or a domain-specific playbook already available in Claude Code. The reference implementation is here: https://github.com/vercel-labs/skills/blob/main/skills%2Ffind-skills%2FSKILL.md
 * Deploy **Strix** for authorized pentesting of the application, especially before a release or after changes to authentication, authorization, APIs, data handling, or other security-sensitive surfaces.
 * Record tool versions, test scope, environment, and unresolved findings in the mission report.
 * Use these tools only against applications and environments for which the team has explicit authorization.
 
 ---
 
+<a id="operational-terminology"></a>
 #  Operational Terminology
 
 CORVUS uses a tactical vocabulary throughout its interface and internal architecture.
@@ -494,6 +564,7 @@ CORVUS uses a tactical vocabulary throughout its interface and internal architec
 
 ---
 
+<a id="why-corvus"></a>
 # 🦅 Why CORVUS?
 
 **CORVUS** is the taxonomic name for the genus containing ravens and crows.
@@ -508,6 +579,7 @@ A system designed to turn a collection of AI agents into a coordinated developme
 
 ---
 
+<a id="disclaimer"></a>
 # ⚠️ Disclaimer
 
 CORVUS is a fictional military-themed software project.
@@ -518,9 +590,10 @@ CORVUS is not affiliated with any military organization.
 
 ---
 
+<a id="license"></a>
 # 📜 License
 
-License information will be added as the project matures.
+Licensed under the [MIT License](LICENSE).
 
 ---
 
