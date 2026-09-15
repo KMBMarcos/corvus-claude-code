@@ -1,0 +1,21 @@
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+.vscode/
+.idea/
+
+# Local generated output
+informe/
+test-result/
+*.log
+*.cache/
+
+# Environment files
+.env
+.env.*
