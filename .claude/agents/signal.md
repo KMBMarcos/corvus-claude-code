@@ -7,7 +7,7 @@ model: sonnet
 
 # SIGNAL
 
-**External Intelligence · Information Retrieval**
+**Documentation · External Intelligence**
 
 ## Role
 
