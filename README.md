@@ -1,22 +1,24 @@
 # CORVUS
 
+[English](README.en.md) · **Español**
+
 ### Combat-Oriented Reconnaissance & Virtual Unified System
 
-<p align="center"><img src="assets/corvus-mascot.png" alt="CORVUS mascot" width="160"></p>
+<p align="center"><img src="assets/corvus-mascot.png" alt="Mascota de CORVUS" width="160"></p>
 
-> **A tactical multi-agent command system for Claude Code.**
+> **Un sistema táctico de comando multiagente para Claude Code.**
 
-CORVUS is an experimental multi-agent orchestration system built for **Claude Code**, designed around a military science-fiction command structure.
+CORVUS es un sistema experimental de orquestación multiagente construido para **Claude Code**, diseñado alrededor de una estructura de comando de ciencia ficción militar.
 
-Instead of relying on a single general-purpose agent to handle every problem, CORVUS organizes specialized agents into a coordinated force — each with a defined role, operational doctrine, and area of expertise.
+En lugar de depender de un único agente generalista para resolver cada problema, CORVUS organiza agentes especializados en una fuerza coordinada: cada uno con un rol definido, una doctrina operativa y un área de especialidad.
 
-The objective is simple:
+El objetivo es simple:
 
-**Recon. Analyze. Deploy. Execute. Verify.**
+**Reconocer. Analizar. Desplegar. Ejecutar. Verificar.**
 
-## Table of Contents
+## Tabla de contenidos
 
-- [The Doctrine](#the-doctrine)
+- [La doctrina](#the-doctrine)
 - [Roster](#roster)
   - [COMMANDER](#commander)
   - [RAVEN](#raven)
@@ -27,42 +29,42 @@ The objective is simple:
   - [SIGNAL](#signal)
   - [AEGIS](#aegis)
   - [SENTINEL](#sentinel)
-  - [Unit Selection](#unit-selection)
-- [Mission Lifecycle](#mission-lifecycle)
-- [Multi-Agent Philosophy](#multi-agent-philosophy)
-  - [Specialization](#specialization)
-  - [Delegation](#delegation)
-  - [Reconnaissance First](#reconnaissance-first)
-  - [Separation of Analysis and Execution](#separation-of-analysis-and-execution)
-  - [Independent Verification](#independent-verification)
-  - [Mission-Oriented Execution](#mission-oriented-execution)
-- [Installation](#installation)
-- [Project Status](#project-status)
+  - [Selección de unidades](#unit-selection)
+- [Ciclo de vida de la misión](#mission-lifecycle)
+- [Filosofía multiagente](#multi-agent-philosophy)
+  - [Especialización](#specialization)
+  - [Delegación](#delegation)
+  - [Primero el reconocimiento](#reconnaissance-first)
+  - [Separación entre análisis y ejecución](#separation-of-analysis-and-execution)
+  - [Verificación independiente](#independent-verification)
+  - [Ejecución orientada a la misión](#mission-oriented-execution)
+- [Instalación](#installation)
+- [Estado del proyecto](#project-status)
 - [Roadmap](#roadmap)
-  - [Phase I — Command Structure](#phase-i--command-structure)
-  - [Phase II — Deployment](#phase-ii--deployment)
-  - [Phase III — Intelligence](#phase-iii--intelligence)
-  - [Phase IV — Defensive Operations](#phase-iv--defensive-operations)
-  - [Phase V — Command Infrastructure](#phase-v--command-infrastructure)
-- [Designed For](#designed-for)
-- [Recommended Plugins & Tools](#recommended-plugins--tools)
-- [Operational Terminology](#operational-terminology)
-- [Why CORVUS?](#why-corvus)
-- [Disclaimer](#disclaimer)
-- [License](#license)
+  - [Fase I — Estructura de comando](#phase-i--command-structure)
+  - [Fase II — Despliegue](#phase-ii--deployment)
+  - [Fase III — Inteligencia](#phase-iii--intelligence)
+  - [Fase IV — Operaciones defensivas](#phase-iv--defensive-operations)
+  - [Fase V — Infraestructura de comando](#phase-v--command-infrastructure)
+- [Diseñado para](#designed-for)
+- [Plugins y herramientas recomendados](#recommended-plugins--tools)
+- [Terminología operativa](#operational-terminology)
+- [¿Por qué CORVUS?](#why-corvus)
+- [Aviso legal](#disclaimer)
+- [Licencia](#license)
 
 ---
 
 <a id="the-doctrine"></a>
-## ⚔️ The Doctrine
+## ⚔️ La doctrina
 
-Software engineering is rarely a single operation.
+La ingeniería de software rara vez es una sola operación.
 
-A complex task may require understanding an unfamiliar codebase, investigating existing architecture, designing a solution, implementing changes, testing the result, and verifying that nothing was compromised along the way.
+Una tarea compleja puede requerir entender un código desconocido, investigar la arquitectura existente, diseñar una solución, implementar cambios, probar el resultado y verificar que nada se haya comprometido en el camino.
 
-CORVUS treats these activities as separate operational responsibilities.
+CORVUS trata estas actividades como responsabilidades operativas separadas.
 
-A central command agent receives the mission and determines which specialized units should be deployed.
+Un agente central de comando recibe la misión y determina qué unidades especializadas desplegar.
 
 ```text
                          COMMANDER
@@ -84,303 +86,305 @@ A central command agent receives the mission and determines which specialized un
                            VERIFY
 ```
 
-SPECTER and AEGIS are optional units deployed directly by COMMANDER when the mission requires deep debugging or user-facing design. Every unit reports back to COMMANDER; no unit deploys or coordinates with another unit directly.
+SPECTER y AEGIS son unidades opcionales que COMMANDER despliega directamente cuando la misión requiere depuración profunda o diseño de cara al usuario. Toda unidad reporta a COMMANDER; ninguna unidad despliega ni coordina directamente a otra.
 
-CORVUS does not attempt to make every agent capable of everything.
+CORVUS no intenta que cada agente sea capaz de todo.
 
-**Specialization is the doctrine.**
+**La especialización es la doctrina.**
 
 ---
 
 <a id="roster"></a>
 ## 🦅 Roster
 
-CORVUS operates through a specialized roster of autonomous units.
+CORVUS opera mediante un roster de unidades autónomas especializadas.
 
-Each unit has a defined operational role. Units are not interchangeable: they are deployed according to the nature of the mission, and COMMANDER retains responsibility for coordinating their actions.
+Cada unidad tiene un rol operativo definido. Las unidades no son intercambiables: se despliegan según la naturaleza de la misión, y COMMANDER conserva la responsabilidad de coordinar sus acciones.
 
-> **One mission. Multiple specialties. One command.**
+> **Una misión. Múltiples especialidades. Un solo mando.**
 
 ---
 
 <a id="commander"></a>
 ### ☩ COMMANDER
 
-**High Command · Mission Control**
+**Alto mando · Control de misión**
 
-COMMANDER is the central authority of CORVUS.
+COMMANDER es la autoridad central de CORVUS.
 
-It does not exist to perform every task. Its purpose is to understand the mission, determine what capabilities are required, deploy the appropriate units, coordinate their operations, and evaluate their reports.
+No existe para ejecutar todas las tareas. Su propósito es entender la misión, determinar qué capacidades hacen falta, desplegar las unidades adecuadas, coordinar sus operaciones y evaluar sus reportes.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Interpret the user's objective.
-* Break complex objectives into operational tasks.
-* Determine which units should be deployed.
-* Establish execution order and dependencies.
-* Coordinate multiple units.
-* Consolidate intelligence and operational reports.
-* Evaluate mission progress.
-* Request additional deployments when necessary.
-* Determine whether the mission objective has been fulfilled.
-* Deliver the final mission report.
+* Interpretar el objetivo del usuario.
+* Dividir objetivos complejos en tareas operativas.
+* Determinar qué unidades desplegar.
+* Establecer el orden de ejecución y las dependencias.
+* Coordinar múltiples unidades.
+* Consolidar la inteligencia y los reportes operativos.
+* Evaluar el avance de la misión.
+* Solicitar despliegues adicionales cuando sea necesario.
+* Determinar si el objetivo de la misión se cumplió.
+* Entregar el reporte final de la misión.
 
-**Doctrine:**
+**Doctrina:**
 
-> *COMMANDER does not need to know everything. It needs to know who does.*
+> *COMMANDER no necesita saberlo todo. Necesita saber quién sí.*
 
 ---
 
 <a id="raven"></a>
 ### 🦅 RAVEN
 
-**Reconnaissance · Repository Intelligence**
+**Reconocimiento · Inteligencia del repositorio**
 
-RAVEN is CORVUS's reconnaissance specialist.
+RAVEN es el especialista en reconocimiento de CORVUS.
 
-Before operations begin, RAVEN maps the terrain. It explores the codebase, identifies relevant systems, traces dependencies, and reports what already exists.
+Antes de que comiencen las operaciones, RAVEN mapea el terreno. Explora el código, identifica los sistemas relevantes, rastrea dependencias e informa qué existe ya.
 
-RAVEN should prioritize **observation over intervention**.
+RAVEN debe priorizar **la observación sobre la intervención**.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Explore unfamiliar repositories.
-* Map project architecture.
-* Locate relevant files and modules.
-* Identify dependencies and integrations.
-* Analyze existing implementations.
-* Discover conventions and patterns.
-* Identify potential impact areas.
-* Report findings to COMMANDER.
+* Explorar repositorios desconocidos.
+* Mapear la arquitectura del proyecto.
+* Ubicar archivos y módulos relevantes.
+* Identificar dependencias e integraciones.
+* Analizar implementaciones existentes.
+* Descubrir convenciones y patrones.
+* Identificar áreas de posible impacto.
+* Reportar hallazgos a COMMANDER.
 
-**Restrictions:**
+**Restricciones:**
 
-* Should not modify the codebase unless explicitly required by its mission.
-* Should not implement solutions when reconnaissance is the actual objective.
+* No debe modificar el código salvo que su misión lo requiera explícitamente.
+* No debe implementar soluciones cuando el objetivo real es el reconocimiento.
 
-**Doctrine:**
+**Doctrina:**
 
-> *Understand the terrain before deploying the troops.*
+> *Entiende el terreno antes de desplegar las tropas.*
 
 ---
 
 <a id="specter"></a>
 ### 🌑 SPECTER
 
-**Covert Operations · Deep Investigation**
+**Operaciones encubiertas · Investigación profunda**
 
-SPECTER specializes in problems where the cause is hidden beneath the surface.
+SPECTER se especializa en problemas cuya causa está oculta bajo la superficie.
 
-It is deployed when conventional inspection is insufficient: difficult bugs, legacy systems, unexpected behavior, complex interactions, and problems requiring deep tracing.
+Se despliega cuando la inspección convencional no alcanza: bugs difíciles, sistemas heredados, comportamiento inesperado, interacciones complejas y problemas que exigen un rastreo profundo.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Investigate complex bugs.
-* Trace unexpected behavior.
-* Analyze legacy code.
-* Follow execution paths across components.
-* Identify hidden dependencies.
-* Perform root-cause analysis.
-* Investigate failures that resist conventional debugging.
-* Provide actionable intelligence to COMMANDER.
+* Investigar bugs complejos.
+* Rastrear comportamiento inesperado.
+* Analizar código heredado.
+* Seguir rutas de ejecución entre componentes.
+* Identificar dependencias ocultas.
+* Realizar análisis de causa raíz.
+* Investigar fallas que resisten la depuración convencional.
+* Entregar inteligencia accionable a COMMANDER.
 
-SPECTER is an investigative unit, not a general-purpose implementation agent.
+SPECTER es una unidad de investigación, no un agente de implementación de propósito general.
 
-**Doctrine:**
+**Doctrina:**
 
-> *Observe. Infiltrate. Understand. Extract.*
+> *Observa. Infiltra. Comprende. Extrae.*
 
 ---
 
 <a id="forge"></a>
 ### 🔨 FORGE
 
-**Engineering · Fabrication**
+**Ingeniería · Fabricación**
 
-FORGE is the primary engineering unit of CORVUS.
+FORGE es la unidad de ingeniería principal de CORVUS.
 
-Once the objective and implementation strategy are sufficiently understood, FORGE transforms the operational plan into working software.
+Una vez que el objetivo y la estrategia de implementación están suficientemente claros, FORGE convierte el plan operativo en software funcional.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Implement features.
-* Modify existing code.
-* Refactor components.
-* Fix bugs.
-* Create and update tests.
-* Implement APIs and integrations.
-* Apply architectural changes.
-* Produce clean, maintainable code.
+* Implementar funcionalidades.
+* Modificar código existente.
+* Refactorizar componentes.
+* Corregir bugs.
+* Crear y actualizar tests.
+* Implementar APIs e integraciones.
+* Aplicar cambios de arquitectura.
+* Producir código limpio y mantenible.
 
-FORGE is optimized for **focused, well-defined engineering objectives**.
+FORGE está optimizada para **objetivos de ingeniería acotados y bien definidos**.
 
-**Doctrine:**
+**Doctrina:**
 
-> *Plans become systems.*
+> *Los planes se vuelven sistemas.*
 
 ---
 
 <a id="vanguard"></a>
 ### ⚔️ VANGUARD
 
-**Assault · Large-Scale Execution**
+**Asalto · Ejecución a gran escala**
 
-VANGUARD is deployed when the mission exceeds the scope of a focused engineering operation.
+VANGUARD se despliega cuando la misión excede el alcance de una operación de ingeniería acotada.
 
-Where FORGE performs precise engineering, VANGUARD handles broader campaigns involving multiple systems, substantial migrations, or large-scale transformations.
+Donde FORGE hace ingeniería de precisión, VANGUARD maneja campañas más amplias que involucran múltiples sistemas, migraciones sustanciales o transformaciones a gran escala.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Execute large implementation campaigns.
-* Perform system migrations.
-* Coordinate multi-component changes.
-* Execute major refactors.
-* Handle large feature deployments.
-* Manage complex implementation sequences.
-* Maintain operational momentum across multiple objectives.
+* Ejecutar campañas de implementación grandes.
+* Realizar migraciones de sistemas.
+* Coordinar cambios en múltiples componentes.
+* Ejecutar refactors mayores.
+* Manejar despliegues de funcionalidades grandes.
+* Gestionar secuencias de implementación complejas.
+* Mantener el impulso operativo a través de múltiples objetivos.
 
-VANGUARD should be deployed when the mission requires **breadth, persistence, and coordinated execution**.
+VANGUARD debe desplegarse cuando la misión requiere **amplitud, persistencia y ejecución coordinada**.
 
-**Doctrine:**
+**Doctrina:**
 
-> *When the objective requires force, deploy the VANGUARD.*
+> *Cuando el objetivo exige fuerza, despliega la VANGUARD.*
 
 ---
 
 <a id="oracle"></a>
 ### 🔮 ORACLE
 
-**Strategic Intelligence · Analysis**
+**Inteligencia estratégica · Análisis**
 
-ORACLE is CORVUS's strategic intelligence unit.
+ORACLE es la unidad de inteligencia estratégica de CORVUS.
 
-It is deployed when a mission requires reasoning, research, architectural analysis, or evaluation of competing approaches before execution begins.
+Se despliega cuando una misión requiere razonamiento, investigación, análisis de arquitectura o evaluación de enfoques alternativos antes de comenzar la ejecución.
 
-ORACLE provides intelligence. **COMMANDER makes the final operational decision.**
+ORACLE aporta inteligencia. **COMMANDER toma la decisión operativa final.**
 
-**Primary duties:**
+**Deberes principales:**
 
-* Analyze system architecture.
-* Research technical approaches.
-* Evaluate implementation strategies.
-* Identify trade-offs.
-* Assess technical risks.
-* Design solutions.
-* Produce implementation plans.
-* Analyze complex technical decisions.
-* Recommend the most appropriate course of action.
+* Analizar la arquitectura del sistema.
+* Investigar enfoques técnicos.
+* Evaluar estrategias de implementación.
+* Identificar trade-offs.
+* Evaluar riesgos técnicos.
+* Diseñar soluciones.
+* Producir planes de implementación.
+* Analizar decisiones técnicas complejas.
+* Recomendar el curso de acción más apropiado.
 
-ORACLE should favor **analysis and planning over direct implementation**.
+ORACLE debe favorecer **el análisis y la planificación por sobre la implementación directa**.
 
-**Doctrine:**
+**Doctrina:**
 
-> *Knowledge precedes action.*
+> *El conocimiento precede a la acción.*
 
 ---
 
 <a id="signal"></a>
 ### 📡 SIGNAL
 
-**Documentation · External Intelligence**
+**Documentación · Inteligencia externa**
 
-SIGNAL is CORVUS's documentation and external research unit.
+SIGNAL es la unidad de documentación e investigación externa de CORVUS.
 
-It is deployed when a mission requires official documentation, API references, changelogs, library comparisons, or verified information beyond the codebase.
+Se despliega cuando una misión requiere documentación oficial, referencias de API, changelogs, comparativas de librerías o información verificada fuera del código.
 
-When COMMANDER requires an implementation plan that depends on external documentation or research, COMMANDER may deploy SIGNAL and later deploy ORACLE based on SIGNAL's report. SIGNAL gathers and verifies the external intelligence; ORACLE turns it into strategic analysis only when COMMANDER decides that analysis is needed.
+Cuando COMMANDER necesita un plan de implementación que depende de documentación o investigación externa, puede desplegar a SIGNAL y luego a ORACLE a partir del reporte de SIGNAL. SIGNAL reúne y verifica la inteligencia externa; ORACLE la convierte en análisis estratégico solo cuando COMMANDER decide que ese análisis hace falta.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Research official documentation.
-* Verify API references and version-specific behavior.
-* Review changelogs and release notes.
-* Compare libraries and frameworks.
-* Produce and improve technical documentation.
-* Report sources, confidence, and conflicting information.
+* Investigar documentación oficial.
+* Verificar referencias de API y comportamiento específico de cada versión.
+* Revisar changelogs y notas de versión.
+* Comparar librerías y frameworks.
+* Comparar el comportamiento documentado con las suposiciones sobre el repositorio.
+* Reportar fuentes, nivel de confianza e información contradictoria.
 
-SIGNAL provides verified information. **ORACLE converts that information into strategy when planning is required.**
+SIGNAL aporta información verificada. **ORACLE convierte esa información en estrategia cuando se requiere planificación.**
 
-**Doctrine:**
+**Doctrina:**
 
-> *Verified knowledge travels farther.*
+> *El conocimiento verificado llega más lejos.*
 
 ---
 
 <a id="aegis"></a>
 ### 🛡️ AEGIS
 
-**Interface · User Experience**
+**Interfaz · Experiencia de usuario**
 
-AEGIS is CORVUS's interface and UX unit.
+AEGIS es la unidad de interfaz y UX de CORVUS.
 
-It is deployed whenever a mission affects something a user will see or touch, including screens, forms, dashboards, components, and interaction flows.
+Se despliega siempre que una misión afecta algo que un usuario va a ver o tocar: pantallas, formularios, dashboards, componentes y flujos de interacción.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Design user interfaces and interaction flows.
-* Evaluate usability and accessibility.
-* Identify existing UI patterns and design systems.
-* Propose concrete layout and interaction options.
-* Implement user-facing interface changes when authorized.
-* Document the reasoning behind interface decisions.
+* Diseñar interfaces de usuario y flujos de interacción.
+* Evaluar usabilidad y accesibilidad.
+* Identificar patrones de UI y sistemas de diseño existentes.
+* Proponer opciones concretas de layout e interacción.
+* Implementar cambios de interfaz de cara al usuario cuando esté autorizado.
+* Documentar el razonamiento detrás de las decisiones de interfaz.
 
-AEGIS should preserve established project patterns and surface unresolved interface decisions before implementation.
+AEGIS debe respetar los patrones establecidos del proyecto y plantear las decisiones de interfaz sin resolver antes de implementar.
 
-**Doctrine:**
+**Doctrina:**
 
-> *The interface is part of the mission.*
+> *La interfaz es parte de la misión.*
 
 ---
 
 <a id="sentinel"></a>
 ### 💀 SENTINEL
 
-**Defense · Verification & Quality Assurance**
+**Defensa · Verificación y control de calidad**
 
-SENTINEL is CORVUS's defensive and verification unit.
+SENTINEL es la unidad defensiva y de verificación de CORVUS.
 
-Its purpose is to challenge completed work rather than assume that completed work is correct.
+Su propósito es cuestionar el trabajo terminado en lugar de asumir que está correcto.
 
-SENTINEL provides an independent assessment of whether the mission objective has actually been achieved.
+SENTINEL ofrece una evaluación independiente de si el objetivo de la misión realmente se cumplió.
 
-**Primary duties:**
+**Deberes principales:**
 
-* Run and evaluate tests.
-* Detect regressions.
-* Review implementation correctness.
-* Validate requirements.
-* Identify security concerns.
-* Inspect code quality.
-* Challenge assumptions made during implementation.
-* Identify incomplete or unintended changes.
-* Report failures back to COMMANDER.
+* Ejecutar y evaluar tests.
+* Detectar regresiones.
+* Revisar la corrección de la implementación.
+* Validar requisitos.
+* Identificar problemas de seguridad.
+* Inspeccionar la calidad del código.
+* Cuestionar las suposiciones hechas durante la implementación.
+* Identificar cambios incompletos o no deseados.
+* Reportar fallas a COMMANDER.
 
-SENTINEL should be particularly valuable at the end of missions involving significant code changes.
+SENTINEL es especialmente valiosa al final de misiones que implican cambios significativos de código.
 
-**Doctrine:**
+**Doctrina:**
 
-> *Nothing leaves the battlefield unverified.*
+> *Nada abandona el campo de batalla sin verificar.*
 
-### ⚔️ Unit Selection
+---
 
-COMMANDER selects units according to the mission, not according to a fixed pipeline:
+<a id="unit-selection"></a>
+### ⚔️ Selección de unidades
 
-* Deploy RAVEN for repository reconnaissance.
-* Deploy ORACLE for architecture, planning, or strategic analysis.
-* Deploy SIGNAL only when external documentation or research is needed.
-* Deploy AEGIS only when the mission affects user-facing interfaces or workflows.
-* Select exactly one primary executor: FORGE for focused changes or VANGUARD for broad campaigns.
-* Deploy SENTINEL afterward for independent verification.
+COMMANDER selecciona las unidades según la misión, no según un pipeline fijo:
 
-Every unit reports its findings or blockers to COMMANDER. COMMANDER decides the next deployment.
+* Desplegar RAVEN para el reconocimiento del repositorio.
+* Desplegar ORACLE para arquitectura, planificación o análisis estratégico.
+* Desplegar SIGNAL solo cuando hace falta documentación o investigación externa.
+* Desplegar AEGIS solo cuando la misión afecta interfaces o flujos de cara al usuario.
+* Elegir exactamente un ejecutor principal: FORGE para cambios acotados o VANGUARD para campañas amplias.
+* Desplegar SENTINEL después para la verificación independiente.
+
+Toda unidad reporta sus hallazgos o bloqueantes a COMMANDER. COMMANDER decide el siguiente despliegue.
+
+---
 
 <a id="mission-lifecycle"></a>
-<a id="unit-selection"></a>
-### ⚔️ Unit Selection
+# 🎯 Ciclo de vida de la misión
 
-# 🎯 Mission Lifecycle
-
-A typical CORVUS operation follows a tactical lifecycle:
+Una operación típica de CORVUS sigue un ciclo de vida táctico:
 
 ```text
         MISSION
@@ -404,65 +408,65 @@ A typical CORVUS operation follows a tactical lifecycle:
       FAIL -> COMMANDER REDEPLOYS
 ```
 
-Not every mission requires every unit.
+No toda misión requiere todas las unidades.
 
-COMMANDER determines the appropriate deployment based on the objective.
+COMMANDER determina el despliegue adecuado según el objetivo.
 
 ---
 
 <a id="multi-agent-philosophy"></a>
-# 🧠 Multi-Agent Philosophy
+# 🧠 Filosofía multiagente
 
-CORVUS is built around several principles.
+CORVUS se construye sobre varios principios.
 
 <a id="specialization"></a>
-### 1. Specialization
+### 1. Especialización
 
-Agents should have clear responsibilities instead of attempting to solve every problem.
+Los agentes deben tener responsabilidades claras en lugar de intentar resolver todos los problemas.
 
 <a id="delegation"></a>
-### 2. Delegation
+### 2. Delegación
 
-The command layer should focus on deciding **who should perform the work**, not necessarily performing all of it itself.
+La capa de comando debe concentrarse en decidir **quién debe hacer el trabajo**, no necesariamente en hacerlo todo ella misma.
 
 <a id="reconnaissance-first"></a>
-### 3. Reconnaissance First
+### 3. Primero el reconocimiento
 
-Agents should understand an unfamiliar codebase before modifying it.
+Los agentes deben entender un código desconocido antes de modificarlo.
 
 <a id="separation-of-analysis-and-execution"></a>
-### 4. Separation of Analysis and Execution
+### 4. Separación entre análisis y ejecución
 
-Planning and implementation are different activities.
+Planificar e implementar son actividades distintas.
 
-CORVUS treats them accordingly.
+CORVUS las trata en consecuencia.
 
 <a id="independent-verification"></a>
-### 5. Independent Verification
+### 5. Verificación independiente
 
-An agent that writes the solution should not automatically be considered the final authority on whether the solution is correct.
+Un agente que escribe la solución no debe considerarse automáticamente la autoridad final sobre si la solución es correcta.
 
 <a id="mission-oriented-execution"></a>
-### 6. Mission-Oriented Execution
+### 6. Ejecución orientada a la misión
 
-Every operation should have a clear objective, operational state, and completion condition.
+Toda operación debe tener un objetivo claro, un estado operativo y una condición de finalización.
 
 ---
 
 <a id="installation"></a>
-# 📦 Installation
+# 📦 Instalación
 
-CORVUS is not a package. It is a set of Claude Code subagent definitions plus a `/commander` command that carries the doctrine. Installing it in a project means copying both in and restarting Claude Code. Your sessions stay normal until you type `/commander <mission>`.
+CORVUS no es un paquete. Es un conjunto de definiciones de subagentes de Claude Code más un comando `/commander` que lleva la doctrina. Instalarlo en un proyecto significa copiar ambos y reiniciar Claude Code. Tus sesiones siguen siendo normales hasta que escribas `/commander <misión>`.
 
-**Prerequisites:** Claude Code installed, and the target project opened as your working directory. `CORVUS` below is the path to your local clone of this repository.
+**Requisitos:** Claude Code instalado y el proyecto de destino abierto como directorio de trabajo. `CORVUS` más abajo es la ruta a tu clon local de este repositorio.
 
-> **Fastest way:** open Claude Code in your project and tell it:
+> **La forma más rápida:** abre Claude Code en tu proyecto y dile:
 >
 > *"Install CORVUS following https://github.com/KMBMarcos/corvus-claude-code/blob/main/INSTALL.md"*
 >
-> The agent clones the repo, copies the units and the `/commander` command (your `CLAUDE.md` is not touched), and tells you to restart. The manual steps below do the same thing.
+> El agente clona el repo, copia las unidades y el comando `/commander` (tu `CLAUDE.md` no se toca) y te avisa que reinicies. Los pasos manuales de abajo hacen lo mismo.
 
-### 1. Install the units
+### 1. Instalar las unidades
 
 ```bash
 CORVUS=/path/to/corvus-cc
@@ -472,55 +476,55 @@ mkdir -p .claude/agents .claude/missions
 cp "$CORVUS"/.claude/agents/*.md .claude/agents/
 ```
 
-This installs the eight units (RAVEN, SPECTER, ORACLE, SIGNAL, AEGIS, FORGE, VANGUARD, SENTINEL). Claude Code reads each file's `description` to decide when to deploy it, and `tools` / `model` to limit what it can do.
+Esto instala las ocho unidades (RAVEN, SPECTER, ORACLE, SIGNAL, AEGIS, FORGE, VANGUARD, SENTINEL). Claude Code lee el `description` de cada archivo para decidir cuándo desplegarla, y `tools` / `model` para limitar lo que puede hacer.
 
-> To make the units available in **every** project instead, copy them to `~/.claude/agents/`. Project-level files take precedence over user-level ones.
+> Para que las unidades estén disponibles en **todos** los proyectos, cópialas a `~/.claude/agents/`. Los archivos a nivel de proyecto tienen precedencia sobre los de nivel de usuario.
 
-### 2. Install the `/commander` command
+### 2. Instalar el comando `/commander`
 
-COMMANDER is not a subagent: it is your main Claude Code session, activated on demand by a slash command that carries its doctrine.
+COMMANDER no es un subagente: es tu sesión principal de Claude Code, activada a demanda por un slash command que lleva su doctrina.
 
 ```bash
 mkdir -p .claude/commands
 cp "$CORVUS"/.claude/commands/commander.md .claude/commands/
 ```
 
-Your project's `CLAUDE.md` is not modified. The doctrine is written in Spanish; translate the file if your team prefers.
+El `CLAUDE.md` de tu proyecto no se modifica. La doctrina está escrita en español.
 
-### 3. Restart Claude Code
+### 3. Reiniciar Claude Code
 
-Subagents load when the session starts. Units added mid-session are not detected until you restart.
+Los subagentes se cargan al iniciar la sesión. Las unidades agregadas a mitad de sesión no se detectan hasta reiniciar.
 
-### 4. Verify the deployment
+### 4. Verificar el despliegue
 
-Run `/commander`: CORVUS asks for your language, shows the mascot, and says it is ready. Then give it a mission (or run `/commander Map the structure of this project.`): COMMANDER should deploy **RAVEN**. If the command is not found or nothing is deployed, check that the files are in `.claude/commands/` and `.claude/agents/` (not the project root) and that you restarted the session.
+Ejecuta `/commander`: CORVUS te pregunta el idioma, muestra la mascota y avisa que está listo. Luego dale una misión (o ejecuta `/commander Map the structure of this project.`): COMMANDER debería desplegar a **RAVEN**. Si el comando no se encuentra o no se despliega nada, revisa que los archivos estén en `.claude/commands/` y `.claude/agents/` (no en la raíz del proyecto) y que hayas reiniciado la sesión.
 
-### 5. Adapt to the project
+### 5. Adaptar al proyecto
 
-* **SENTINEL** discovers the project's own test, lint, and build commands (from `CLAUDE.md`, CI config, and build manifests). Make sure those commands are documented somewhere it can find them.
-* **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask you to allow Bash. Add the permission to `.claude/settings.json`, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }`.
-* **Strix** (penetration testing) only runs when the mission prompt states that the target environment is authorized for security testing.
-* **Mission records** are written to `.claude/missions/<date>-<slug>.md` for any mission that deploys two or more units. Commit them to keep a team history, or add `.claude/missions/` to `.gitignore` to keep them local.
-* The first `/commander` (no mission needed) asks whether you want responses in Spanish or English (saved in `.claude/corvus-lang`), shows the mascot, greets you, and says CORVUS is ready. From then on, in that session, just state your next mission; you do not need to repeat the command.
-* Afterwards, a bare `/commander` only reminds you to use `/commander <mission>`. With a mission, CORVUS shows the mascot and executes it.
-* Add `.claude/settings.local.json` and `.claude/corvus-lang` to `.gitignore` (personal settings should not be committed).
+* **SENTINEL** descubre los comandos de test, lint y build propios del proyecto (desde `CLAUDE.md`, la configuración de CI y los manifiestos de build). Asegúrate de que esos comandos estén documentados en algún lugar donde pueda encontrarlos.
+* **AEGIS** usa Bash para ejecutar Playwright CLI en los flujos de cara al usuario. En su primer despliegue te pedirá permitir Bash. Agrega el permiso en `.claude/settings.json`, por ejemplo `"permissions": { "allow": ["Bash(npx playwright:*)"] }`.
+* **Strix** (pentesting) solo se ejecuta cuando el prompt de la misión indica que el entorno objetivo está autorizado para pruebas de seguridad.
+* **Los registros de misión** se escriben en `.claude/missions/<fecha>-<slug>.md` para toda misión que despliegue dos o más unidades. Súbelos al repo para mantener un historial de equipo, o agrega `.claude/missions/` a `.gitignore` para mantenerlos locales.
+* El primer `/commander` (no hace falta misión) pregunta si quieres las respuestas en español o inglés (se guarda en `.claude/corvus-lang`), muestra la mascota, te saluda y avisa que CORVUS está listo. Desde ahí, en esa sesión, basta con indicar tu próxima misión; no necesitas repetir el comando.
+* Después, un `/commander` sin misión solo te recuerda usar `/commander <misión>`. Con una misión, CORVUS muestra la mascota y la ejecuta.
+* Agrega `.claude/settings.local.json` y `.claude/corvus-lang` a `.gitignore` (la configuración personal no debe subirse).
 
-### Updating and removing
+### Actualizar y eliminar
 
-To update, repeat steps 1 and 2 with the newer version of CORVUS. To remove CORVUS, delete the eight files in `.claude/agents/` and `.claude/commands/commander.md`.
+Para actualizar, repite los pasos 1 y 2 con la versión más reciente de CORVUS. Para eliminar CORVUS, borra los ocho archivos de `.claude/agents/` y `.claude/commands/commander.md`.
 
 ---
 
 <a id="project-status"></a>
-# 🚧 Project Status
+# 🚧 Estado del proyecto
 
-**Status: Experimental / Early Development**
+**Estado: experimental / desarrollo temprano**
 
-CORVUS is currently under active development.
+CORVUS está actualmente en desarrollo activo.
 
-The initial goal is to reproduce the core ideas of a coordinated multi-agent development system within the **Claude Code** ecosystem while establishing a distinct tactical architecture and operational identity.
+El objetivo inicial es reproducir las ideas centrales de un sistema de desarrollo multiagente coordinado dentro del ecosistema de **Claude Code**, estableciendo a la vez una arquitectura táctica y una identidad operativa propias.
 
-The architecture is expected to evolve significantly as the project develops.
+Se espera que la arquitectura evolucione de forma significativa a medida que avance el proyecto.
 
 ---
 
@@ -528,137 +532,137 @@ The architecture is expected to evolve significantly as the project develops.
 # 🗺️ Roadmap
 
 <a id="phase-i--command-structure"></a>
-### Phase I — Command Structure
+### Fase I — Estructura de comando
 
-* [x] Define CORVUS architecture
-* [x] Implement COMMANDER
-* [x] Implement specialized units
-* [x] Establish agent communication
-* [x] Define mission lifecycle
+* [x] Definir la arquitectura de CORVUS
+* [x] Implementar COMMANDER
+* [x] Implementar las unidades especializadas
+* [x] Establecer la comunicación entre agentes
+* [x] Definir el ciclo de vida de la misión
 
 <a id="phase-ii--deployment"></a>
-### Phase II — Deployment
+### Fase II — Despliegue
 
-* [x] Dynamic agent delegation
-* [x] Parallel agent execution
-* [x] Mission state tracking
-* [x] Agent result aggregation
-* [x] Failure recovery
+* [x] Delegación dinámica de agentes
+* [x] Ejecución paralela de agentes
+* [x] Seguimiento del estado de la misión
+* [x] Agregación de resultados de agentes
+* [x] Recuperación ante fallos
 
 <a id="phase-iii--intelligence"></a>
-### Phase III — Intelligence
+### Fase III — Inteligencia
 
-* [x] Repository reconnaissance
-* [x] Strategic planning
-* [x] Context sharing between units
-* [x] Persistent mission reports
-* [ ] Improved task routing
+* [x] Reconocimiento del repositorio
+* [x] Planificación estratégica
+* [x] Contexto compartido entre unidades
+* [x] Reportes de misión persistentes
+* [ ] Mejor enrutamiento de tareas
 
 <a id="phase-iv--defensive-operations"></a>
-### Phase IV — Defensive Operations
+### Fase IV — Operaciones defensivas
 
-* [ ] Automated verification
-* [ ] Regression detection
-* [ ] Security review
-* [ ] Independent implementation auditing
+* [ ] Verificación automatizada
+* [ ] Detección de regresiones
+* [ ] Revisión de seguridad
+* [ ] Auditoría independiente de implementaciones
 
 <a id="phase-v--command-infrastructure"></a>
-### Phase V — Command Infrastructure
+### Fase V — Infraestructura de comando
 
-* [ ] Mission dashboard
-* [ ] Operational logs
-* [ ] Agent telemetry
-* [ ] Configurable units
-* [ ] Custom deployment strategies
+* [ ] Dashboard de misiones
+* [ ] Logs operativos
+* [ ] Telemetría de agentes
+* [ ] Unidades configurables
+* [ ] Estrategias de despliegue personalizadas
 
 ---
 
 <a id="designed-for"></a>
-# 🛠️ Designed For
+# 🛠️ Diseñado para
 
-CORVUS is designed specifically around **Claude Code** and its agentic development workflow.
+CORVUS está diseñado específicamente alrededor de **Claude Code** y su flujo de desarrollo agéntico.
 
-The project aims to complement Claude Code rather than replace it.
+El proyecto busca complementar a Claude Code, no reemplazarlo.
 
-Claude remains the underlying intelligence.
+Claude sigue siendo la inteligencia de base.
 
-**CORVUS provides the command structure.**
+**CORVUS aporta la estructura de comando.**
 
 ---
 
 <a id="recommended-plugins--tools"></a>
-# 🔌 Recommended Plugins & Tools
+# 🔌 Plugins y herramientas recomendados
 
-CORVUS works best when its agents can access specialized tools for interface validation and application security. Install and configure these tools according to the target project's stack and permissions.
+CORVUS funciona mejor cuando sus agentes tienen acceso a herramientas especializadas para validar interfaces y seguridad de aplicaciones. Instala y configura estas herramientas según el stack y los permisos del proyecto de destino.
 
-| Tool | Recommended units | Mission support |
-| ---- | ----------------- | --------------- |
-| **Playwright CLI** | AEGIS, SENTINEL | Browser automation, UI interaction checks, visual validation, and end-to-end testing. AEGIS uses it to validate user flows; SENTINEL uses it to independently verify that the interface works as required. |
-| **Find Skills** | COMMANDER, RAVEN, ORACLE, SIGNAL | Discover reusable skills and established workflows for the mission. It helps locate specialized capabilities, reusable patterns, and documented procedures without reinventing a task from scratch. |
-| **Strix** | SENTINEL, COMMANDER | Authorized application penetration testing, security assessment, and actionable findings for web application attack surfaces. SENTINEL evaluates the results and COMMANDER coordinates remediation when risks are found. |
+| Herramienta | Unidades recomendadas | Apoyo a la misión |
+| ----------- | --------------------- | ----------------- |
+| **Playwright CLI** | AEGIS, SENTINEL | Automatización de navegador, verificación de interacciones de UI, validación visual y pruebas end-to-end. AEGIS lo usa para validar flujos de usuario; SENTINEL, para verificar de forma independiente que la interfaz funciona como se requiere. |
+| **Find Skills** | COMMANDER, RAVEN, ORACLE, SIGNAL | Descubre skills reutilizables y flujos de trabajo establecidos para la misión. Ayuda a ubicar capacidades especializadas, patrones reutilizables y procedimientos documentados sin reinventar una tarea desde cero. |
+| **Strix** | SENTINEL, COMMANDER | Pentesting autorizado de aplicaciones, evaluación de seguridad y hallazgos accionables sobre superficies de ataque web. SENTINEL evalúa los resultados y COMMANDER coordina la remediación cuando se encuentran riesgos. |
 
-## Plugin Deployment Guidance
+## Guía de despliegue de plugins
 
-* Deploy **Playwright CLI** whenever a mission changes screens, forms, dashboards, components, or user-facing workflows.
-* Run Playwright checks during AEGIS implementation and again during SENTINEL's independent verification phase.
-* Use **Find Skills** when the team needs a known reusable capability, a proven workflow, or a domain-specific playbook already available in Claude Code. The reference implementation is here: https://github.com/vercel-labs/skills/blob/main/skills%2Ffind-skills%2FSKILL.md
-* Deploy **Strix** for authorized pentesting of the application, especially before a release or after changes to authentication, authorization, APIs, data handling, or other security-sensitive surfaces.
-* Record tool versions, test scope, environment, and unresolved findings in the mission report.
-* Use these tools only against applications and environments for which the team has explicit authorization.
+* Usa **Playwright CLI** siempre que una misión cambie pantallas, formularios, dashboards, componentes o flujos de cara al usuario.
+* Ejecuta las verificaciones de Playwright durante la implementación de AEGIS y de nuevo en la fase de verificación independiente de SENTINEL.
+* Usa **Find Skills** cuando el equipo necesite una capacidad reutilizable conocida, un flujo probado o un playbook de dominio ya disponible en Claude Code. La implementación de referencia está aquí: https://github.com/vercel-labs/skills/blob/main/skills%2Ffind-skills%2FSKILL.md
+* Usa **Strix** para el pentesting autorizado de la aplicación, especialmente antes de un release o tras cambios en autenticación, autorización, APIs, manejo de datos u otras superficies sensibles.
+* Registra versiones de las herramientas, alcance de las pruebas, entorno y hallazgos sin resolver en el reporte de la misión.
+* Usa estas herramientas solo sobre aplicaciones y entornos para los que el equipo tenga autorización explícita.
 
 ---
 
 <a id="operational-terminology"></a>
-#  Operational Terminology
+# 🎖️ Terminología operativa
 
-CORVUS uses a tactical vocabulary throughout its interface and internal architecture.
+CORVUS usa un vocabulario táctico en toda su interfaz y arquitectura interna.
 
-| Term                 | Meaning                                   |
-| -------------------- | ----------------------------------------- |
-| **Mission**          | User objective                            |
-| **Commander**        | Strategic coordinator                     |
-| **Deployment**       | Starting an agent                         |
-| **Reconnaissance**   | Repository/codebase investigation         |
-| **Intel**            | Information gathered by agents            |
-| **Objective**        | Specific task assigned to a unit          |
-| **Engagement**       | Active execution                          |
-| **Verification**     | Independent validation                    |
-| **Redeployment**     | Sending an agent back to resolve an issue |
-| **Extraction**       | Returning results to command              |
-| **Mission Complete** | Objective successfully verified           |
+| Término                                | Significado                                      |
+| -------------------------------------- | ------------------------------------------------ |
+| **Misión** (Mission)                   | Objetivo del usuario                             |
+| **Comandante** (Commander)             | Coordinador estratégico                          |
+| **Despliegue** (Deployment)            | Iniciar un agente                                |
+| **Reconocimiento** (Reconnaissance)    | Investigación del repositorio/código             |
+| **Inteligencia** (Intel)               | Información reunida por los agentes              |
+| **Objetivo** (Objective)               | Tarea específica asignada a una unidad           |
+| **Enfrentamiento** (Engagement)        | Ejecución activa                                 |
+| **Verificación** (Verification)        | Validación independiente                         |
+| **Redespliegue** (Redeployment)        | Enviar de nuevo un agente a resolver un problema |
+| **Extracción** (Extraction)            | Devolver los resultados al mando                 |
+| **Misión cumplida** (Mission Complete) | Objetivo verificado con éxito                    |
 
 ---
 
 <a id="why-corvus"></a>
-# 🦅 Why CORVUS?
+# 🦅 ¿Por qué CORVUS?
 
-**CORVUS** is the taxonomic name for the genus containing ravens and crows.
+**CORVUS** es el nombre taxonómico del género que agrupa a cuervos y cornejas.
 
-It represents intelligence, observation, adaptability, and coordinated behavior — characteristics that fit the philosophy behind the system.
+Representa inteligencia, observación, adaptabilidad y comportamiento coordinado: características que encajan con la filosofía detrás del sistema.
 
-For this project, CORVUS is also an acronym:
+Para este proyecto, CORVUS es además un acrónimo:
 
 > **Combat-Oriented Reconnaissance & Virtual Unified System**
 
-A system designed to turn a collection of AI agents into a coordinated development force.
+Un sistema diseñado para convertir un conjunto de agentes de IA en una fuerza de desarrollo coordinada.
 
 ---
 
 <a id="disclaimer"></a>
-# ⚠️ Disclaimer
+# ⚠️ Aviso legal
 
-CORVUS is a fictional military-themed software project.
+CORVUS es un proyecto de software ficticio de temática militar.
 
-Military terminology is used as a metaphor for software engineering roles, agent specialization, coordination, and operational workflows.
+La terminología militar se usa como metáfora de los roles de ingeniería de software, la especialización de agentes, la coordinación y los flujos operativos.
 
-CORVUS is not affiliated with any military organization.
+CORVUS no está afiliado a ninguna organización militar.
 
 ---
 
 <a id="license"></a>
-# 📜 License
+# 📜 Licencia
 
-Licensed under the [MIT License](LICENSE).
+Licenciado bajo la [Licencia MIT](LICENSE).
 
 ---
 
@@ -666,6 +670,6 @@ Licensed under the [MIT License](LICENSE).
 
 **CORVUS**
 
-*Recon. Analyze. Deploy. Execute. Verify.*
+*Reconocer. Analizar. Desplegar. Ejecutar. Verificar.*
 
 </p>

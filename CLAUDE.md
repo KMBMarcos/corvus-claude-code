@@ -59,9 +59,9 @@ model: haiku
 
 `commander.md` también tiene este frontmatter (`tools: Read, Grep, Glob, Bash, Agent, Task`, `model: opus`), pero como aclara la sección de arriba, en esta sesión COMMANDER no se invoca como subagente — es la raíz de la operación. Por eso `commander.md` se queda como referencia legible en la raíz del repo, mientras las 8 unidades restantes viven en `.claude/agents/<unidad>.md` para que Claude Code las detecte y las pueda desplegar con `Task`/`Agent`.
 
-**Duplicación de doctrina:** `.claude/commands/commander.md` (el comando `/commander` que se instala en otros proyectos) es una copia de las secciones de doctrina de este archivo (todo menos "Arquitectura del repositorio"). Si cambiás reglas de mando, Mission State, Handoff o Redeployment acá, reflejalo en ese archivo.
+**Duplicación de doctrina:** `.claude/commands/commander.md` (el comando `/commander` que se instala en otros proyectos) es una copia de las secciones de doctrina de este archivo (todo menos "Arquitectura del repositorio"), más las secciones propias de instalación: "Idioma" (pregunta es/en en la primera activación y lo persiste en `.claude/corvus-lang`) y "Activación" (banner de CORVUS, saludo de primera activación y recordatorio de `/commander <misión>` en activaciones posteriores). Esas dos secciones solo existen en el comando, no en este archivo. Si cambiás reglas de mando, Mission State, Handoff o Redeployment acá, reflejalo en ese archivo.
 
-`README.md` es la presentación pública del proyecto (mismo contenido de roster en inglés, con diagramas de flujo de misión y una sección de plugins recomendados — Playwright CLI para AEGIS/SENTINEL, Strix para SENTINEL/COMMANDER). Si actualizás la doctrina de una unidad en su `.md`, considerá si el resumen correspondiente en `README.md` también necesita el mismo cambio para no divergir.
+`README.md` (español, principal) y `README.en.md` (inglés) son la presentación pública del proyecto — mismo contenido en ambos idiomas, con diagramas de flujo de misión y una sección de plugins recomendados — Playwright CLI para AEGIS/SENTINEL, Strix para SENTINEL/COMMANDER). Si actualizás la doctrina de una unidad en su `.md`, considerá si el resumen correspondiente en `README.md` también necesita el mismo cambio para no divergir, y mantené los dos README sincronizados.
 
 ## Mission State
 

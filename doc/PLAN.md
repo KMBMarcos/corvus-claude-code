@@ -57,6 +57,9 @@ Es la fase más especulativa y de menor prioridad — depende de que las Fases I
 
 Fases I y II cerradas; III y IV cerradas a nivel doctrina. Lo que queda abierto (afinar `description`, probar el ciclo de verificación) requiere uso real: instalar CORVUS en un proyecto con código y suite de tests, correr una misión completa con SENTINEL, y registrar en el mission state cualquier despliegue mal ruteado. Fase V sigue diferida hasta tener varias misiones reales.
 
+### Instalación y activación (fuera de las fases)
+✅ **Hecho.** `INSTALL.md` legible por agentes y sección "Installation" en `README.md`; `/commander` pregunta el idioma (`.claude/corvus-lang`), muestra el banner de CORVUS y saluda en la primera activación; un `/commander` sin misión posterior solo recuerda la sintaxis. README bilingüe: `README.md` (español, principal) y `README.en.md` (inglés).
+
 ---
 
 ## Pasos siguientes
