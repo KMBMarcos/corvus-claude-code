@@ -34,6 +34,7 @@ The objective is simple:
   - [Separation of Analysis and Execution](#separation-of-analysis-and-execution)
   - [Independent Verification](#independent-verification)
   - [Mission-Oriented Execution](#mission-oriented-execution)
+- [Installation](#installation)
 - [Project Status](#project-status)
 - [Roadmap](#roadmap)
   - [Phase I — Command Structure](#phase-i--command-structure)
@@ -443,6 +444,66 @@ An agent that writes the solution should not automatically be considered the fin
 ### 6. Mission-Oriented Execution
 
 Every operation should have a clear objective, operational state, and completion condition.
+
+---
+
+<a id="installation"></a>
+# 📦 Installation
+
+CORVUS is not a package. It is a set of Claude Code subagent definitions plus a `/commander` command that carries the doctrine. Installing it in a project means copying both in and restarting Claude Code. Your sessions stay normal until you type `/commander <mission>`.
+
+**Prerequisites:** Claude Code installed, and the target project opened as your working directory. `CORVUS` below is the path to your local clone of this repository.
+
+> **Fastest way:** open Claude Code in your project and tell it:
+>
+> *"Install CORVUS following https://github.com/KMBMarcos/corvus-claude-code/blob/main/INSTALL.md"*
+>
+> The agent clones the repo, copies the units and the `/commander` command (your `CLAUDE.md` is not touched), and tells you to restart. The manual steps below do the same thing.
+
+### 1. Install the units
+
+```bash
+CORVUS=/path/to/corvus-cc
+cd /path/to/your-project
+
+mkdir -p .claude/agents .claude/missions
+cp "$CORVUS"/.claude/agents/*.md .claude/agents/
+```
+
+This installs the eight units (RAVEN, SPECTER, ORACLE, SIGNAL, AEGIS, FORGE, VANGUARD, SENTINEL). Claude Code reads each file's `description` to decide when to deploy it, and `tools` / `model` to limit what it can do.
+
+> To make the units available in **every** project instead, copy them to `~/.claude/agents/`. Project-level files take precedence over user-level ones.
+
+### 2. Install the `/commander` command
+
+COMMANDER is not a subagent: it is your main Claude Code session, activated on demand by a slash command that carries its doctrine.
+
+```bash
+mkdir -p .claude/commands
+cp "$CORVUS"/.claude/commands/commander.md .claude/commands/
+```
+
+Your project's `CLAUDE.md` is not modified. The doctrine is written in Spanish; translate the file if your team prefers.
+
+### 3. Restart Claude Code
+
+Subagents load when the session starts. Units added mid-session are not detected until you restart.
+
+### 4. Verify the deployment
+
+Run `/commander Map the structure of this project.` COMMANDER should deploy **RAVEN**. If the command is not found or nothing is deployed, check that the files are in `.claude/commands/` and `.claude/agents/` (not the project root) and that you restarted the session.
+
+### 5. Adapt to the project
+
+* **SENTINEL** discovers the project's own test, lint, and build commands (from `CLAUDE.md`, CI config, and build manifests). Make sure those commands are documented somewhere it can find them.
+* **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask you to allow Bash. Add the permission to `.claude/settings.json`, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }`.
+* **Strix** (penetration testing) only runs when the mission prompt states that the target environment is authorized for security testing.
+* **Mission records** are written to `.claude/missions/<date>-<slug>.md` for any mission that deploys two or more units. Commit them to keep a team history, or add `.claude/missions/` to `.gitignore` to keep them local.
+* Add `.claude/settings.local.json` to `.gitignore` (personal permissions should not be committed).
+
+### Updating and removing
+
+To update, repeat steps 1 and 2 with the newer version of CORVUS. To remove CORVUS, delete the eight files in `.claude/agents/` and `.claude/commands/commander.md`.
 
 ---
 
