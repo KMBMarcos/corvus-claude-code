@@ -27,3 +27,6 @@ test-result/
 
 # Serena MCP local project state
 .serena/
+
+# Documentacion de desarrollo
+docs/
