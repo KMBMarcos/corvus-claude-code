@@ -36,9 +36,9 @@ De paso se corrigieron 2 inconsistencias que había entre `README.md` y las fich
 3. ✅ **Hecho.** Protocolo de **redeployment** definido en `CLAUDE.md` (sección "Protocolo de Redeployment"): máximo 2 reintentos a la unidad ejecutora, luego SIGNAL investiga el síntoma puntual, se retoma el fix con ese contexto, y si persiste se escala al usuario.
 
 ### Fase III — Intelligence
-1. Formalizar un lugar para **reportes de misión persistentes** (ej. `.claude/missions/<fecha>-<slug>.md` o vía el sistema de memoria) — hoy los reportes de cada unidad existen solo dentro del contexto de la conversación y se pierden al cerrarla.
-2. Definir cómo se comparte contexto entre unidades sin que se pisen entre sí (ej. RAVEN entrega hallazgos → ORACLE los consume — ¿cómo se pasa ese payload hoy? Actualmente depende de que COMMANDER lo resuma a mano en el prompt de despliegue).
-3. Afinar los campos `description` de cada unidad a partir de casos reales de mala clasificación (si Claude Code despliega la unidad equivocada, ese es el primer lugar a corregir).
+1. ✅ **Hecho.** **Reportes de misión persistentes**: resuelto por el mission state en `.claude/missions/<fecha>-<slug>.md` (sección "Mission State" de `CLAUDE.md`); reportes extensos en `test-result/`.
+2. ✅ **Hecho.** **Contexto compartido entre unidades**: definido en `CLAUDE.md` (sección "Handoff entre unidades") — estructura fija de prompt de despliegue, insumos textuales con unidad de origen, reportes largos por ruta de archivo, y unidades paralelas sin terreno compartido.
+3. ⏳ **Pendiente de datos reales.** Afinar los campos `description` de cada unidad a partir de casos reales de mala clasificación (si Claude Code despliega la unidad equivocada, ese es el primer lugar a corregir).
 
 ### Fase IV — Defensive Operations
 1. Conectar SENTINEL con los comandos reales de test/lint del proyecto objetivo (esto depende del proyecto donde se instale CORVUS, no de este repo).
@@ -54,4 +54,4 @@ Es la fase más especulativa y de menor prioridad — depende de que las Fases I
 
 ## Próximo paso recomendado
 
-Con la Fase I cerrada, el siguiente paso natural es Fase II: probar un mission flow con 2-3 unidades en secuencia y otro en paralelo (ya se probó una secuencia RAVEN→SIGNAL→ORACLE de forma ad hoc), y formalizar el formato mínimo de mission state y el protocolo de redeployment.
+Fases I y II cerradas; Fase III con 2 de 3 ítems hechos. El ítem 3 (afinar `description`) no se puede hacer en frío: requiere registrar casos reales de mala clasificación durante misiones. Mientras tanto, el siguiente paso con trabajo concreto es Fase IV, ítem 3 (formato estricto del reporte de verificación de SENTINEL), que no depende del proyecto destino.

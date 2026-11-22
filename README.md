@@ -483,10 +483,10 @@ The architecture is expected to evolve significantly as the project develops.
 <a id="phase-iii--intelligence"></a>
 ### Phase III — Intelligence
 
-* [ ] Repository reconnaissance
-* [ ] Strategic planning
-* [ ] Context sharing between units
-* [ ] Persistent mission reports
+* [x] Repository reconnaissance
+* [x] Strategic planning
+* [x] Context sharing between units
+* [x] Persistent mission reports
 * [ ] Improved task routing
 
 <a id="phase-iv--defensive-operations"></a>

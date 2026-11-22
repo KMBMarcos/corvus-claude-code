@@ -95,6 +95,35 @@ SENTINEL: PASS / FAIL / N-A — con fecha del último chequeo.
 
 No hace falta este archivo para misiones triviales (una sola unidad, o ninguna — COMMANDER resolviendo directo). Es obligatorio cuando hay coordinación real entre dos o más unidades o cuando la misión cruza más de un turno de conversación.
 
+## Handoff entre unidades
+
+Las unidades nunca se hablan entre sí ni comparten memoria: cada despliegue arranca en frío y solo sabe lo que dice su prompt. COMMANDER es el único canal. Reglas:
+
+1. **Todo prompt de despliegue lleva esta estructura:**
+
+   ```markdown
+   ## Objetivo
+   <qué tiene que entregar esta unidad, en una o dos líneas>
+
+   ## Contexto de misión
+   <objetivo global y por qué se despliega esta unidad ahora>
+
+   ## Insumos de unidades previas
+   ### De RAVEN (<fecha o turno>)
+   <extracto textual del reporte, o ruta al archivo donde vive completo>
+
+   ## Restricciones
+   <archivos que no debe tocar, alcance máximo, qué ya se descartó>
+
+   ## Entrega
+   <formato esperado: la sección "Output" de su ficha, salvo que la misión pida otro>
+   ```
+
+2. **Insumos textuales, no parafraseados.** Lo que una unidad le pasa a otra se copia literal (recortado a lo relevante), con la unidad de origen marcada. Resumir con palabras de COMMANDER introduce suposiciones — si hace falta interpretar, eso es trabajo de ORACLE.
+3. **Reportes largos van a archivo.** Si un reporte no entra cómodo en un prompt, COMMANDER lo guarda (en el mission state o en `test-result/`) y pasa la ruta; todas las unidades tienen `Read`.
+4. **Paralelo = sin terreno compartido.** Unidades desplegadas a la vez reciben porciones disjuntas de la misión. Dos ejecutores (FORGE, VANGUARD, AEGIS) nunca escriben los mismos archivos en paralelo; si los alcances se solapan, van en secuencia. Si dos reportes paralelos se contradicen, COMMANDER lo resuelve (o pide más) antes del siguiente despliegue.
+5. **Lo que se pasó queda registrado.** En el mission state, la columna "Objetivo asignado" y la sección "Reportes recibidos" alcanzan para reconstruir qué insumo recibió cada unidad.
+
 ## Protocolo de Redeployment
 
 Cuando SENTINEL reporta FAIL:
