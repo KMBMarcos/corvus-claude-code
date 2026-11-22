@@ -2,6 +2,8 @@
 
 ### Combat-Oriented Reconnaissance & Virtual Unified System
 
+<p align="center"><img src="assets/corvus-mascot.png" alt="CORVUS mascot" width="160"></p>
+
 > **A tactical multi-agent command system for Claude Code.**
 
 CORVUS is an experimental multi-agent orchestration system built for **Claude Code**, designed around a military science-fiction command structure.
@@ -499,6 +501,7 @@ Run `/commander Map the structure of this project.` COMMANDER should deploy **RA
 * **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask you to allow Bash. Add the permission to `.claude/settings.json`, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }`.
 * **Strix** (penetration testing) only runs when the mission prompt states that the target environment is authorized for security testing.
 * **Mission records** are written to `.claude/missions/<date>-<slug>.md` for any mission that deploys two or more units. Commit them to keep a team history, or add `.claude/missions/` to `.gitignore` to keep them local.
+* When `/commander` activates, CORVUS shows its mascot and reports that it is online and at your orders.
 * The first `/commander` asks whether you want responses in Spanish or English and saves the choice in `.claude/corvus-lang`.
 * Add `.claude/settings.local.json` and `.claude/corvus-lang` to `.gitignore` (personal settings should not be committed).
 

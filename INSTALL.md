@@ -53,7 +53,7 @@ Claude Code loads subagents at session start, so **the units are not active unti
 
 1. Files created or modified (list them).
 2. Any file you did not overwrite.
-3. The restart instruction, and this verification step to run afterwards: type `/commander Map the structure of this project.` Claude Code should deploy **RAVEN**. If the command is not found or the unit is not deployed, check that the files are in `.claude/commands/` and `.claude/agents/` and that the session was restarted.
+3. The restart instruction, and this verification step to run afterwards: type `/commander Map the structure of this project.` Claude Code should show the CORVUS mascot with the line "CORVUS online" and then deploy **RAVEN**. If the command is not found or the unit is not deployed, check that the files are in `.claude/commands/` and `.claude/agents/` and that the session was restarted.
 4. These notes:
    - **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask the user to allow Bash, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }` in `.claude/settings.json`.
    - **SENTINEL** discovers the project's own test, lint, and build commands from `CLAUDE.md`, CI config, and build manifests; suggest documenting them if they are not.
