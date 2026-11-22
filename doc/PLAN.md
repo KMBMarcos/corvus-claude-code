@@ -41,9 +41,10 @@ De paso se corrigieron 2 inconsistencias que había entre `README.md` y las fich
 3. ⏳ **Pendiente de datos reales.** Afinar los campos `description` de cada unidad a partir de casos reales de mala clasificación (si Claude Code despliega la unidad equivocada, ese es el primer lugar a corregir).
 
 ### Fase IV — Defensive Operations
-1. Conectar SENTINEL con los comandos reales de test/lint del proyecto objetivo (esto depende del proyecto donde se instale CORVUS, no de este repo).
-2. Integrar las herramientas recomendadas en `README.md` (Playwright CLI para AEGIS/SENTINEL, Strix para SENTINEL/COMMANDER) como pasos explícitos dentro de la doctrina de esas unidades, no solo como tabla informativa.
-3. Definir el formato del **reporte de verificación** de SENTINEL de forma más estricta (ya está esbozado en `sentinel.md`; falta un ejemplo concreto de PASS/FAIL con severidad).
+1. ✅ **Hecho (doctrina).** SENTINEL descubre los comandos reales de test/lint/build del proyecto destino (CLAUDE.md/README, CI, manifiesto de build) en vez de inventarlos; "sin suite automatizada" se reporta como hallazgo, no como PASS implícito. Ver "Verification Procedure" en `.claude/agents/sentinel.md`.
+2. ✅ **Hecho (doctrina).** Playwright CLI integrado en AEGIS (ahora con `Bash`, acotado a tooling de frontend; en la primera ejecución pide al usuario habilitar el permiso de Bash) y en SENTINEL (re-ejecuta los flujos de forma independiente). Strix integrado en SENTINEL solo con autorización explícita en el prompt de despliegue.
+3. ✅ **Hecho.** Formato estricto del reporte de SENTINEL con escala de severidad (BLOCKER / MAJOR / MINOR / INFO) y ejemplo concreto de FAIL en `.claude/agents/sentinel.md`.
+4. ⏳ **Pendiente.** Probar el ciclo completo (ejecutor → SENTINEL FAIL → redeployment → PASS) en un proyecto real con suite de tests; recién ahí marcar los checkboxes de Fase IV en `README.md`.
 
 ### Fase V — Command Infrastructure
 Es la fase más especulativa y de menor prioridad — depende de que las Fases I-IV estén probadas en uso real antes de invertir en tooling:
@@ -54,4 +55,4 @@ Es la fase más especulativa y de menor prioridad — depende de que las Fases I
 
 ## Próximo paso recomendado
 
-Fases I y II cerradas; Fase III con 2 de 3 ítems hechos. El ítem 3 (afinar `description`) no se puede hacer en frío: requiere registrar casos reales de mala clasificación durante misiones. Mientras tanto, el siguiente paso con trabajo concreto es Fase IV, ítem 3 (formato estricto del reporte de verificación de SENTINEL), que no depende del proyecto destino.
+Fases I y II cerradas; III y IV cerradas a nivel doctrina. Lo que queda abierto (afinar `description`, probar el ciclo de verificación) requiere uso real: instalar CORVUS en un proyecto con código y suite de tests, correr una misión completa con SENTINEL, y registrar en el mission state cualquier despliegue mal ruteado. Fase V sigue diferida hasta tener varias misiones reales.
