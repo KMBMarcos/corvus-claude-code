@@ -56,3 +56,21 @@ Es la fase más especulativa y de menor prioridad — depende de que las Fases I
 ## Próximo paso recomendado
 
 Fases I y II cerradas; III y IV cerradas a nivel doctrina. Lo que queda abierto (afinar `description`, probar el ciclo de verificación) requiere uso real: instalar CORVUS en un proyecto con código y suite de tests, correr una misión completa con SENTINEL, y registrar en el mission state cualquier despliegue mal ruteado. Fase V sigue diferida hasta tener varias misiones reales.
+
+---
+
+## Pasos siguientes
+
+### Consulta al usuario antes de cambiar (propuestas previas)
+Hoy solo AEGIS tiene la regla de proponer opciones concretas antes de asumir. Falta decidir qué otras unidades deben **consultar al usuario y presentar propuestas antes de modificar algo**, y cómo.
+
+1. **Analizar unidad por unidad** (read-only de la doctrina actual en `.claude/agents/`) si debe consultar antes de actuar, en qué casos y con qué umbral. Hipótesis de partida, a confirmar con el análisis:
+   - **FORGE / VANGUARD** (ejecutan cambios): candidatos principales. VANGUARD seguro en migraciones y refactors amplios; FORGE solo cuando haya más de un enfoque razonable o el cambio sea destructivo o difícil de revertir.
+   - **ORACLE** (planifica): presentar alternativas con trade-offs ya está en su salida; falta que COMMANDER las lleve al usuario para elegir antes de ejecutar.
+   - **AEGIS**: ya lo hace; revisar que el comportamiento sea consistente con el resto.
+   - **SENTINEL**: no debería modificar código, solo reportar; confirmar que no necesita consulta.
+   - **RAVEN / SIGNAL / SPECTER**: solo lectura o investigación; probablemente no consultan.
+2. **Definir el mecanismo.** Las unidades corren como subagentes y no tienen contacto directo con el usuario: dentro de una unidad, `AskUserQuestion` no está disponible. Decidir entre (a) la unidad devuelve sus propuestas en el reporte y COMMANDER pregunta al usuario antes de redesplegar a ejecutar, o (b) COMMANDER pregunta antes de desplegar al ejecutor, usando el plan de ORACLE.
+3. **Definir el formato de la propuesta** (opciones numeradas, impacto, riesgo, recomendación) y el criterio de cuándo basta con una nota informativa en vez de preguntar.
+4. **Reflejarlo en la doctrina:** fichas de las unidades afectadas, reglas de mando en `CLAUDE.md` y en `.claude/commands/commander.md` (las dos copias), y el resumen en `README.md`.
+5. **Probarlo** en una misión real con FORGE o VANGUARD y registrar el resultado en el mission state.
