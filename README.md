@@ -493,7 +493,7 @@ Subagents load when the session starts. Units added mid-session are not detected
 
 ### 4. Verify the deployment
 
-Run `/commander Map the structure of this project.` COMMANDER should deploy **RAVEN**. If the command is not found or nothing is deployed, check that the files are in `.claude/commands/` and `.claude/agents/` (not the project root) and that you restarted the session.
+Run `/commander`: CORVUS asks for your language, shows the mascot, and says it is ready. Then give it a mission (or run `/commander Map the structure of this project.`): COMMANDER should deploy **RAVEN**. If the command is not found or nothing is deployed, check that the files are in `.claude/commands/` and `.claude/agents/` (not the project root) and that you restarted the session.
 
 ### 5. Adapt to the project
 
@@ -501,8 +501,8 @@ Run `/commander Map the structure of this project.` COMMANDER should deploy **RA
 * **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask you to allow Bash. Add the permission to `.claude/settings.json`, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }`.
 * **Strix** (penetration testing) only runs when the mission prompt states that the target environment is authorized for security testing.
 * **Mission records** are written to `.claude/missions/<date>-<slug>.md` for any mission that deploys two or more units. Commit them to keep a team history, or add `.claude/missions/` to `.gitignore` to keep them local.
-* When `/commander` activates, CORVUS shows its mascot and reports that it is online and at your orders.
-* The first `/commander` asks whether you want responses in Spanish or English and saves the choice in `.claude/corvus-lang`.
+* The first `/commander` (no mission needed) asks whether you want responses in Spanish or English (saved in `.claude/corvus-lang`), shows the mascot, greets you, and says CORVUS is ready. From then on, in that session, just state your next mission; you do not need to repeat the command.
+* Afterwards, a bare `/commander` only reminds you to use `/commander <mission>`. With a mission, CORVUS shows the mascot and executes it.
 * Add `.claude/settings.local.json` and `.claude/corvus-lang` to `.gitignore` (personal settings should not be committed).
 
 ### Updating and removing

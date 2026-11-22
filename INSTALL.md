@@ -49,11 +49,11 @@ Delete the temporary clone.
 
 ### 6. Report to the user, and tell them to restart
 
-Claude Code loads subagents at session start, so **the units are not active until the user restarts Claude Code in this project.** You cannot verify deployment in the current session. Your final message must include:
+Claude Code loads subagents at session start, so **the units are not active until the user restarts Claude Code in this project.** You cannot verify deployment in the current session. Your final message must start with the CORVUS greeting: show the mascot art (copy it literally, in a code block, from the code block under `## Activación` in `corvus-src/.claude/commands/commander.md`, so read it before deleting the clone in step 5) and, below it, this bilingual line (the user's language is not known yet): `CORVUS instalado y listo. Reiniciá Claude Code y escribí /commander para activarme. / CORVUS installed and ready. Restart Claude Code and type /commander to activate me.` Then include:
 
 1. Files created or modified (list them).
 2. Any file you did not overwrite.
-3. The restart instruction, and this verification step to run afterwards: type `/commander Map the structure of this project.` Claude Code should show the CORVUS mascot with the line "CORVUS online" and then deploy **RAVEN**. If the command is not found or the unit is not deployed, check that the files are in `.claude/commands/` and `.claude/agents/` and that the session was restarted.
+3. The restart instruction, and this verification step to run afterwards: type `/commander`. CORVUS asks for the response language, shows the mascot, greets the user, and says it is ready: from then on, in that session, the user can state missions directly without repeating the command. After that first greeting, `/commander` with no mission only reminds the user to use `/commander <mission>`. To test deployment, run `/commander Map the structure of this project.`: **RAVEN** should be deployed. If the command is not found or the unit is not deployed, check that the files are in `.claude/commands/` and `.claude/agents/` and that the session was restarted.
 4. These notes:
    - **AEGIS** uses Bash to run Playwright CLI for user-facing flows. On its first deployment it will ask the user to allow Bash, for example `"permissions": { "allow": ["Bash(npx playwright:*)"] }` in `.claude/settings.json`.
    - **SENTINEL** discovers the project's own test, lint, and build commands from `CLAUDE.md`, CI config, and build manifests; suggest documenting them if they are not.
