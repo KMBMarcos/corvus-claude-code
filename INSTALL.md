@@ -41,7 +41,7 @@ COMMANDER is activated on demand with `/commander <mission>`. The command file h
 
 ### 4. Project hygiene
 
-If the project has a `.gitignore`, make sure it contains `.claude/settings.local.json` (add it if missing). Do **not** ignore `.claude/agents/` or `.claude/commands/`: they should be committed so the team shares CORVUS. Mission records in `.claude/missions/` may be committed or ignored; ask the user which they prefer, defaulting to committed.
+If the project has a `.gitignore`, make sure it contains `.claude/settings.local.json` and `.claude/corvus-lang` (add them if missing; the second stores each user's language choice for `/commander`). Do **not** ignore `.claude/agents/` or `.claude/commands/`: they should be committed so the team shares CORVUS. Mission records in `.claude/missions/` may be committed or ignored; ask the user which they prefer, defaulting to committed.
 
 ### 5. Clean up
 

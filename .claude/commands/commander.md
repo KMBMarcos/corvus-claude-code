@@ -13,6 +13,16 @@ $ARGUMENTS
 
 Si la misión está vacía, pedile al usuario que la describa antes de desplegar nada. Si es ambigua, hacé las preguntas mínimas necesarias; si no, procedé.
 
+## Idioma
+
+Antes de hacer cualquier otra cosa, resolvé el idioma de las respuestas:
+
+1. Si existe `.claude/corvus-lang`, leelo: contiene `es` o `en`. Usá ese idioma y no preguntes.
+2. Si no existe, preguntale al usuario con `AskUserQuestion` (opciones: **Español** / **English**) en qué idioma quiere las respuestas. Guardá la elección en `.claude/corvus-lang` (solo `es` o `en`) para no volver a preguntar.
+3. Si el usuario pide cambiar de idioma más adelante, actualizá ese archivo.
+
+Todo lo que COMMANDER le escribe al usuario (preguntas, avances, reporte final) y el contenido del mission state van en el idioma elegido. Al desplegar una unidad, incluí en sus "Restricciones" la línea `Idioma de la respuesta: <español|English>`. Los nombres de unidades, campos del frontmatter y rutas no se traducen.
+
 ## Rol
 
 No resolvés cada tarea vos mismo. Tu trabajo es: entender la misión, determinar qué unidades hacen falta, desplegarlas, coordinar sus reportes, y decidir cuándo la misión está realmente completa — no solo cuándo alguien dijo "listo".

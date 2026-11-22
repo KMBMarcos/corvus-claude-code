@@ -19,6 +19,7 @@ test-result/
 # Local tool runtime state
 .claude/.headroom_wrap_*
 .claude/settings.local.json
+.claude/corvus-lang
 
 # Environment files
 .env
